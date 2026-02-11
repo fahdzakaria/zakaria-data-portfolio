@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Data Engineering</title>
+    <meta
+      name="description"
+      content="Portfolio data engineering: pipelines ETL, orchestration, analytics et dashboards."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-a"></div>
+    <div class="bg-orb bg-orb-b"></div>
+
+    <header class="site-header">
+      <a href="#top" class="brand">ZF</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">Menu</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#projects">Projets</a>
+        <a href="#skills">Competences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal">
+        <p class="eyebrow">Data Engineering Portfolio</p>
+        <h1>Pipelines robustes, dashboards lisibles, execution fiable.</h1>
+        <p class="hero-copy">
+          J'industrialise des flux data de bout en bout: extraction, transformation, stockage
+          Postgres, orchestration et visualisation Metabase.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">Voir les projets</a>
+          <a class="btn btn-ghost" href="#contact">Me contacter</a>
+        </div>
+        <div class="metrics">
+          <article>
+            <span class="metric-number" data-target="2">0</span>
+            <span class="metric-label">Projets production-ready</span>
+          </article>
+          <article>
+            <span class="metric-number" data-target="14">0</span>
+            <span class="metric-label">Tests automatises</span>
+          </article>
+          <article>
+            <span class="metric-number" data-target="1">0</span>
+            <span class="metric-label">Stack unifiee (Python/SQL)</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="projects">
+        <div class="section-head">
+          <h2>Projets</h2>
+          <div class="filters" id="projectFilters">
+            <button class="filter is-active" data-filter="all">Tous</button>
+            <button class="filter" data-filter="etl">ETL</button>
+            <button class="filter" data-filter="orchestration">Orchestration</button>
+            <button class="filter" data-filter="analytics">Analytics</button>
+          </div>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+          <article class="project-card reveal" data-category="etl analytics orchestration">
+            <img src="./assets/immo-dashboard.png" alt="Dashboard IMMO Market Monitor" />
+            <div class="project-body">
+              <h3>IMMO ETL</h3>
+              <p>
+                Pipeline Zillow ZHVI -> Postgres avec chargement idempotent, validation schema,
+                tests unitaires et dashboard decisionnel.
+              </p>
+              <ul>
+                <li>Upsert fiable sur cle primaire (region_id, dt)</li>
+                <li>Transformations MoM/YoY et vue analytique</li>
+                <li>Metabase dashboard: tendances + comparatifs geographiques</li>
+              </ul>
+              <div class="tech-stack">
+                <span>Python</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Metabase</span>
+              </div>
+              <a class="inline-link" href="../immo/README.md">Voir la documentation</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="etl orchestration analytics">
+            <img src="./assets/crypto-dashboard.png" alt="Dashboard CRYPTO Market Monitor" />
+            <div class="project-body">
+              <h3>CRYPTO Ingest</h3>
+              <p>
+                Ingestion resilient CoinGecko -> Postgres avec gestion des retries, tolerance au
+                rate-limit, vues materialisees et supervision Metabase.
+              </p>
+              <ul>
+                <li>Run tolerant aux erreurs HTTP par coin</li>
+                <li>Refresh auto des vues hourly/daily</li>
+                <li>Support orchestration Airflow ou mode standalone Docker</li>
+              </ul>
+              <div class="tech-stack">
+                <span>Python</span><span>Airflow</span><span>Docker</span><span>PostgreSQL</span>
+              </div>
+              <a class="inline-link" href="../projet/crypto/README.md">Voir la documentation</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="skills">
+        <div class="section-head">
+          <h2>Competences</h2>
+        </div>
+        <div class="skills-grid">
+          <article>
+            <h3>Data Engineering</h3>
+            <p>Conception ETL, idempotence, qualite de donnees, execution batch robuste.</p>
+          </article>
+          <article>
+            <h3>Data Platform</h3>
+            <p>Postgres, modelisation SQL, materialized views, performance et indexation.</p>
+          </article>
+          <article>
+            <h3>Delivery</h3>
+            <p>Docker Compose, tests Pytest, scripts Makefile, documentation orientee execution.</p>
+          </article>
+          <article>
+            <h3>BI & Storytelling</h3>
+            <p>Dashboards Metabase exploitables pour pilotage metier et suivi des tendances.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="section reveal" id="contact">
+      <h2>Contact</h2>
+      <p>Disponible pour stage, alternance ou mission data engineering / analytics.</p>
+      <div class="contact-links">
+        <a href="mailto:zakaria@example.com">zakaria@example.com</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <small>(c) <span id="year"></span> Zakaria Fahd</small>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
