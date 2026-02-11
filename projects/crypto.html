@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRYPTO Ingest | Case Study</title>
+    <meta
+      name="description"
+      content="Case study CRYPTO ingest: CoinGecko, retries/backoff, upsert SQL, materialized views et dashboards."
+    />
+    <script defer data-domain="fahdzakaria.github.io" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <header class="site-header">
+      <a href="../index.html" class="brand">Zakaria Fahd</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">Menu</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="../index.html#projects" data-i18n="nav_projects">Projets</a>
+        <a href="../index.html#proof" data-i18n="nav_quality">Qualite</a>
+        <a href="../index.html#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <button class="lang-switch" id="langSwitch">EN</button>
+    </header>
+
+    <main>
+      <section class="hero details-hero reveal">
+        <p class="eyebrow">Case Study</p>
+        <h1>CRYPTO Ingest</h1>
+        <p class="hero-copy">
+          Ingestion de prix crypto en quasi temps reel, robuste face aux erreurs API et exploitable
+          en visualisation.
+        </p>
+        <div class="details-meta">
+          <span class="badge">Python</span>
+          <span class="badge">Airflow</span>
+          <span class="badge">Docker</span>
+          <span class="badge">PostgreSQL</span>
+        </div>
+        <a class="back-link" href="../index.html#projects" data-i18n="case_back">Retour au portfolio</a>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head"><h2 data-i18n="case_problem">Probleme et objectif</h2></div>
+        <div class="panel-grid">
+          <article class="panel">
+            <h3>Contexte</h3>
+            <p>
+              Les APIs crypto peuvent retourner des erreurs intermittentes (429, reseau). Le systeme
+              doit rester operationnel et conserver les donnees disponibles.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>Objectif</h3>
+            <p>
+              Assurer une ingestion continue par coin, sans echec global, avec upsert minute et
+              agregations hourly/daily pour Metabase.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head"><h2 data-i18n="case_arch">Architecture</h2></div>
+        <div class="flow">
+          <article class="flow-node is-active"><h3>Fetch</h3><p>CoinGecko with retries/backoff.</p></article>
+          <article class="flow-node"><h3>Validate</h3><p>Payload checks by coin.</p></article>
+          <article class="flow-node"><h3>Load</h3><p>Upsert minute_prices.</p></article>
+          <article class="flow-node"><h3>Aggregate</h3><p>Refresh materialized views.</p></article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head"><h2 data-i18n="case_decisions">Decisions techniques</h2></div>
+        <div class="panel-grid">
+          <article class="panel">
+            <h3>Robustesse API</h3>
+            <ul>
+              <li>Retries exponentiels + backoff max.</li>
+              <li>Gestion d'erreur par coin pour eviter un crash global.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Stockage analytique</h3>
+            <ul>
+              <li>Upsert sur <code>(coin, timestamp)</code>.</li>
+              <li>Refresh des vues en autocommit pour mode concurrently.</li>
+            </ul>
+          </article>
+        </div>
+
+        <details class="sql-card">
+          <summary data-i18n="case_sql">Voir une requete SQL representative</summary>
+          <pre><code>SELECT hour, coin, avg_price, pct_change_1h
+FROM crypto.hourly
+ORDER BY hour DESC
+LIMIT 2000;</code></pre>
+        </details>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head"><h2 data-i18n="case_impact">Impact</h2></div>
+        <div class="panel-grid">
+          <article class="panel">
+            <h3>Resultat data</h3>
+            <p>
+              Pipeline tolerant aux rate limits, recuperation partielle utile et tables toujours a
+              jour pour les coins disponibles.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>Resultat produit</h3>
+            <p>
+              Dashboard de comparaison Oct 5 vs Today avec prix, volume, market cap et variation.
+            </p>
+          </article>
+        </div>
+        <img class="case-image" src="../assets/crypto-dashboard.png" alt="CRYPTO dashboard" />
+      </section>
+    </main>
+
+    <footer class="section reveal" id="contact">
+      <h2 data-i18n="case_links">Liens projet</h2>
+      <div class="contact-links">
+        <a
+          href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres/blob/main/README.md"
+          target="_blank"
+          rel="noreferrer"
+        >README</a>
+        <a href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <small>(c) <span id="year"></span> Zakaria Fahd</small>
+    </footer>
+
+    <script src="../app.js"></script>
+  </body>
+</html>

@@ -3,141 +3,322 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Data Engineering</title>
+    <title>Zakaria Fahd | Data Engineer</title>
     <meta
       name="description"
-      content="Portfolio data engineering: pipelines ETL, orchestration, analytics et dashboards."
+      content="Portfolio Data Engineer: ETL robustes, orchestration, dashboards Metabase et execution fiable."
     />
+    <script defer data-domain="fahdzakaria.github.io" src="https://plausible.io/js/script.js"></script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="bg-orb bg-orb-a"></div>
-    <div class="bg-orb bg-orb-b"></div>
+    <a class="skip-link" href="#content" data-i18n="skip_content">Aller au contenu principal</a>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
 
     <header class="site-header">
-      <a href="#top" class="brand">ZF</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">Menu</button>
+      <a href="#top" class="brand">Zakaria Fahd</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
       <nav class="site-nav" id="siteNav">
-        <a href="#projects">Projets</a>
-        <a href="#skills">Competences</a>
-        <a href="#contact">Contact</a>
+        <a href="#projects" data-i18n="nav_projects">Projets</a>
+        <a href="#timeline" data-i18n="nav_timeline">Formation</a>
+        <a href="#proof" data-i18n="nav_quality">Qualite</a>
+        <a href="#skills" data-i18n="nav_skills">Competences</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
+      <button class="lang-switch" id="langSwitch" aria-label="Switch language">EN</button>
     </header>
 
-    <main id="top">
+    <main id="top" tabindex="-1">
+      <div id="content"></div>
       <section class="hero reveal">
-        <p class="eyebrow">Data Engineering Portfolio</p>
-        <h1>Pipelines robustes, dashboards lisibles, execution fiable.</h1>
-        <p class="hero-copy">
-          J'industrialise des flux data de bout en bout: extraction, transformation, stockage
-          Postgres, orchestration et visualisation Metabase.
+        <p class="eyebrow" data-i18n="hero_eyebrow">Data Engineering Portfolio</p>
+        <h1 data-i18n="hero_title">
+          Je concois des pipelines data robustes qui transforment des donnees en decisions concretes.
+        </h1>
+        <p class="hero-copy" data-i18n="hero_copy">
+          Etudiant Epitech Nice (filiere Intelligence Artificielle & Big Data), je construis des
+          flux de donnees de bout en bout: ingestion, transformation, modelisation SQL,
+          orchestration et visualisation.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#projects">Voir les projets</a>
-          <a class="btn btn-ghost" href="#contact">Me contacter</a>
+          <a class="btn btn-primary" href="#projects" data-i18n="hero_btn_projects">Voir les projets</a>
+          <a class="btn btn-ghost" href="#contact" data-i18n="hero_btn_contact">Me contacter</a>
         </div>
-        <div class="metrics">
-          <article>
-            <span class="metric-number" data-target="2">0</span>
-            <span class="metric-label">Projets production-ready</span>
+
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head"><h2 data-i18n="about_title">Profil</h2></div>
+        <div class="panel-grid">
+          <article class="panel">
+            <h3 data-i18n="about_edu_title">Formation</h3>
+            <p data-i18n="about_edu_copy">
+              Architecte de Systemes d'Information (RNCP Niv. 7) a Epitech, option IA & Big Data
+              (2026-2028). Parcours universitaire prealable en informatique.
+            </p>
           </article>
-          <article>
-            <span class="metric-number" data-target="14">0</span>
-            <span class="metric-label">Tests automatises</span>
-          </article>
-          <article>
-            <span class="metric-number" data-target="1">0</span>
-            <span class="metric-label">Stack unifiee (Python/SQL)</span>
+          <article class="panel">
+            <h3 data-i18n="about_goal_title">Objectif</h3>
+            <p data-i18n="about_goal_copy">
+              Contribuer a des projets Data/IA en transformant des donnees complexes en insights
+              exploitables pour la decision.
+            </p>
           </article>
         </div>
       </section>
 
-      <section class="section reveal" id="projects">
+      <section class="section reveal">
         <div class="section-head">
-          <h2>Projets</h2>
-          <div class="filters" id="projectFilters">
-            <button class="filter is-active" data-filter="all">Tous</button>
-            <button class="filter" data-filter="etl">ETL</button>
-            <button class="filter" data-filter="orchestration">Orchestration</button>
-            <button class="filter" data-filter="analytics">Analytics</button>
-          </div>
+          <h2 data-i18n="flow_title">Pipeline interactif</h2>
+        </div>
+        <p class="section-copy" data-i18n="flow_copy">
+          Sequence d'execution appliquee sur mes projets pour garantir qualite et robustesse.
+        </p>
+        <div class="flow" id="flow">
+          <article class="flow-node is-active">
+            <h3>Extract</h3>
+            <p data-i18n="flow_extract">Sources API / CSV controlees et traceables.</p>
+          </article>
+          <article class="flow-node">
+            <h3>Transform</h3>
+            <p data-i18n="flow_transform">Normalisation, controles qualite, metriques.</p>
+          </article>
+          <article class="flow-node">
+            <h3>Load</h3>
+            <p data-i18n="flow_load">Upsert idempotent, indexation, SQL performant.</p>
+          </article>
+          <article class="flow-node">
+            <h3>Observe</h3>
+            <p data-i18n="flow_observe">Tests, logs, dashboards actionnables.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="projects" aria-labelledby="projects-heading">
+        <div class="section-head">
+          <h2 id="projects-heading" data-i18n="projects_title">Projets</h2>
+        </div>
+        <div class="project-toolbar">
+          <label class="visually-hidden" for="searchInput" data-i18n="search_label">Recherche projet</label>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Rechercher un projet ou une stack..."
+            data-i18n-placeholder="search_placeholder"
+          />
+        </div>
+
+        <div class="filters" id="projectFilters">
+          <button class="filter is-active" data-filter="all" data-i18n="filter_all" aria-pressed="true">Tous</button>
+          <button class="filter" data-filter="etl" aria-pressed="false">ETL</button>
+          <button class="filter" data-filter="orchestration" aria-pressed="false">Orchestration</button>
+          <button class="filter" data-filter="analytics" aria-pressed="false">Analytics</button>
         </div>
 
         <div class="project-grid" id="projectGrid">
-          <article class="project-card reveal" data-category="etl analytics orchestration">
-            <img src="./assets/immo-dashboard.png" alt="Dashboard IMMO Market Monitor" />
+          <article
+            class="project-card reveal"
+            data-category="etl analytics orchestration"
+            data-name="immo etl"
+            data-impact="9"
+            data-recent="2026-02-11"
+            data-stack="python postgresql sqlalchemy metabase docker"
+          >
+            <img src="./assets/immo-dashboard.png" alt="IMMO dashboard" />
             <div class="project-body">
               <h3>IMMO ETL</h3>
-              <p>
-                Pipeline Zillow ZHVI -> Postgres avec chargement idempotent, validation schema,
-                tests unitaires et dashboard decisionnel.
+              <p data-i18n="immo_desc">
+                Pipeline Zillow ZHVI vers Postgres avec transformations MoM/YoY, chargement
+                idempotent et dashboard de pilotage.
               </p>
-              <ul>
-                <li>Upsert fiable sur cle primaire (region_id, dt)</li>
-                <li>Transformations MoM/YoY et vue analytique</li>
-                <li>Metabase dashboard: tendances + comparatifs geographiques</li>
-              </ul>
               <div class="tech-stack">
                 <span>Python</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Metabase</span>
               </div>
-              <a class="inline-link" href="../immo/README.md">Voir la documentation</a>
+              <div class="project-links">
+                <a class="inline-link" href="./projects/immo.html" data-i18n="project_case_study">Case study</a>
+                <a
+                  class="inline-link"
+                  href="https://github.com/fahdzakaria/immo-etl-zillow-postgres/blob/main/README.md"
+                  target="_blank"
+                  rel="noreferrer"
+                >README</a>
+              </div>
             </div>
           </article>
 
-          <article class="project-card reveal" data-category="etl orchestration analytics">
-            <img src="./assets/crypto-dashboard.png" alt="Dashboard CRYPTO Market Monitor" />
+          <article
+            class="project-card reveal"
+            data-category="etl analytics orchestration"
+            data-name="crypto ingest"
+            data-impact="8"
+            data-recent="2026-02-11"
+            data-stack="python airflow docker postgresql metabase"
+          >
+            <img src="./assets/crypto-dashboard.png" alt="CRYPTO dashboard" />
             <div class="project-body">
               <h3>CRYPTO Ingest</h3>
-              <p>
-                Ingestion resilient CoinGecko -> Postgres avec gestion des retries, tolerance au
-                rate-limit, vues materialisees et supervision Metabase.
+              <p data-i18n="crypto_desc">
+                Ingestion CoinGecko resiliente: retries/backoff, tolerance d'erreur par coin, upsert
+                SQL et vues materialisees.
               </p>
-              <ul>
-                <li>Run tolerant aux erreurs HTTP par coin</li>
-                <li>Refresh auto des vues hourly/daily</li>
-                <li>Support orchestration Airflow ou mode standalone Docker</li>
-              </ul>
               <div class="tech-stack">
                 <span>Python</span><span>Airflow</span><span>Docker</span><span>PostgreSQL</span>
               </div>
-              <a class="inline-link" href="../projet/crypto/README.md">Voir la documentation</a>
+              <div class="project-links">
+                <a class="inline-link" href="./projects/crypto.html" data-i18n="project_case_study">Case study</a>
+                <a
+                  class="inline-link"
+                  href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres/blob/main/README.md"
+                  target="_blank"
+                  rel="noreferrer"
+                >README</a>
+              </div>
             </div>
+          </article>
+        </div>
+        <p class="empty-state" id="emptyState" data-i18n="empty_state">Aucun projet ne correspond.</p>
+      </section>
+
+      <section class="section reveal" id="timeline" aria-labelledby="timeline-heading">
+        <div class="section-head">
+          <h2 id="timeline-heading" data-i18n="timeline_title">Formation</h2>
+        </div>
+        <p class="section-copy" data-i18n="timeline_copy">
+          Parcours academique en informatique, data et IA.
+        </p>
+        <div class="timeline-list" id="timelineList">
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <p class="timeline-meta">2022</p>
+              <h3 data-i18n="timeline_item_bac_title">Baccalaureat General - Mention Bien</h3>
+              <p data-i18n="timeline_item_bac_copy">Option Mathematiques / NSI - Lycee Gustave Flaubert.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <p class="timeline-meta">2022 - 2024</p>
+              <h3 data-i18n="timeline_item_uni_title">Universite d'Avignon</h3>
+              <p data-i18n="timeline_item_uni_copy">Parcours informatique et bases en developpement logiciel.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <p class="timeline-meta">2025</p>
+              <h3 data-i18n="timeline_item_mtp_title">Universite de Montpellier</h3>
+              <p data-i18n="timeline_item_mtp_copy">Approfondissement des approches data et IA appliquees.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <p class="timeline-meta">2026 - 2028</p>
+              <h3 data-i18n="timeline_item_epitech_title">Epitech Nice - RNCP 7</h3>
+              <p data-i18n="timeline_item_epitech_copy">Architecte SI, specialisation Intelligence Artificielle & Big Data.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="proof">
+        <div class="section-head">
+          <h2 data-i18n="proof_title">Proof of quality</h2>
+        </div>
+        <div class="proof-grid">
+          <article>
+            <h3 data-i18n="proof_test_title">Tests</h3>
+            <p data-i18n="proof_test_copy">
+              Validation des transformations et des comportements critiques via Pytest.
+            </p>
+            <span class="badge">Pytest</span>
+          </article>
+          <article>
+            <h3 data-i18n="proof_data_title">Fiabilite data</h3>
+            <p data-i18n="proof_data_copy">
+              Schemas explicites, contraintes SQL et chargements idempotents.
+            </p>
+            <span class="badge">PostgreSQL</span>
+          </article>
+          <article>
+            <h3 data-i18n="proof_ops_title">Operations</h3>
+            <p data-i18n="proof_ops_copy">
+              Docker Compose, Makefile et runbooks pour un setup reproductible.
+            </p>
+            <span class="badge">Docker + Make</span>
+          </article>
+          <article>
+            <h3 data-i18n="proof_bi_title">Lecture metier</h3>
+            <p data-i18n="proof_bi_copy">
+              Dashboards Metabase pour piloter tendances, comparatifs et anomalies.
+            </p>
+            <span class="badge">Metabase</span>
           </article>
         </div>
       </section>
 
       <section class="section reveal" id="skills">
         <div class="section-head">
-          <h2>Competences</h2>
+          <h2 data-i18n="skills_title">Competences</h2>
         </div>
         <div class="skills-grid">
           <article>
-            <h3>Data Engineering</h3>
-            <p>Conception ETL, idempotence, qualite de donnees, execution batch robuste.</p>
+            <h3 data-i18n="skill_1_title">Data Engineering</h3>
+            <p data-i18n="skill_1_copy">ETL, ingestion API, batch processing, qualite des donnees.</p>
           </article>
           <article>
-            <h3>Data Platform</h3>
-            <p>Postgres, modelisation SQL, materialized views, performance et indexation.</p>
+            <h3 data-i18n="skill_2_title">Data Platform</h3>
+            <p data-i18n="skill_2_copy">PostgreSQL, modelisation analytique, performance SQL.</p>
           </article>
           <article>
-            <h3>Delivery</h3>
-            <p>Docker Compose, tests Pytest, scripts Makefile, documentation orientee execution.</p>
+            <h3 data-i18n="skill_3_title">Orchestration</h3>
+            <p data-i18n="skill_3_copy">Airflow, planification, retries, reprise sur incident.</p>
           </article>
           <article>
-            <h3>BI & Storytelling</h3>
-            <p>Dashboards Metabase exploitables pour pilotage metier et suivi des tendances.</p>
+            <h3 data-i18n="skill_4_title">Visualization</h3>
+            <p data-i18n="skill_4_copy">Metabase, storytelling KPI et dashboards decisionnels.</p>
           </article>
         </div>
       </section>
     </main>
 
     <footer class="section reveal" id="contact">
-      <h2>Contact</h2>
-      <p>Disponible pour stage, alternance ou mission data engineering / analytics.</p>
+      <h2 data-i18n="contact_title">Contact</h2>
+      <p data-i18n="contact_copy">
+        Recherche contrat d'apprentissage / mission data engineering. Base a Cannes (06400).
+      </p>
+      <form
+        id="contactForm"
+        class="contact-form"
+        action="https://formsubmit.co/fahed.zakaria@epitech.eu"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="Nouveau message portfolio" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" />
+
+        <label for="contactName" data-i18n="contact_name">Nom</label>
+        <input id="contactName" name="name" type="text" required />
+
+        <label for="contactEmail" data-i18n="contact_email">Email</label>
+        <input id="contactEmail" name="email" type="email" required />
+
+        <label for="contactMessage" data-i18n="contact_message">Message</label>
+        <textarea id="contactMessage" name="message" rows="5" required></textarea>
+
+        <button class="btn btn-send" type="submit" data-i18n="contact_send">Envoyer</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
       <div class="contact-links">
-        <a href="mailto:zakaria@example.com">zakaria@example.com</a>
+        <a href="mailto:fahed.zakaria@epitech.eu">fahed.zakaria@epitech.eu</a>
+        <a href="tel:+33762710333">+33 7 62 71 03 33</a>
+        <a href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
       </div>
       <small>(c) <span id="year"></span> Zakaria Fahd</small>
     </footer>
