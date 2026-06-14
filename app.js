@@ -12,6 +12,10 @@ const translations = {
       "Etudiant Epitech Nice (filiere Intelligence Artificielle & Big Data), je construis des flux de donnees de bout en bout: ingestion, transformation, modelisation SQL, orchestration et visualisation.",
     hero_btn_projects: "Voir les projets",
     hero_btn_contact: "Me contacter",
+    stat_pipelines: "Pipelines en production",
+    stat_uptime: "Disponibilite ingestion",
+    stat_level: "Niveau de formation",
+    stat_idempotent: "Chargements idempotents",
     about_title: "Profil",
     about_edu_title: "Formation",
     about_edu_copy:
@@ -63,8 +67,11 @@ const translations = {
     skill_3_copy: "Airflow, planification, retries, reprise sur incident.",
     skill_4_title: "Visualization",
     skill_4_copy: "Metabase, storytelling KPI et dashboards decisionnels.",
-    contact_title: "Contact",
+    contact_eyebrow: "Contact",
+    contact_title: "Construisons quelque chose de solide.",
     contact_copy: "Recherche contrat d'apprentissage / mission data engineering. Base a Cannes (06400).",
+    contact_phone: "Telephone",
+    contact_linkedin_sub: "Profil professionnel",
     contact_name: "Nom",
     contact_email: "Email",
     contact_message: "Message",
@@ -93,6 +100,10 @@ const translations = {
       "Epitech Nice student (AI & Big Data track), I ship end-to-end flows: ingestion, transformations, SQL modeling, orchestration, and visualization.",
     hero_btn_projects: "View projects",
     hero_btn_contact: "Contact me",
+    stat_pipelines: "Pipelines in production",
+    stat_uptime: "Ingestion uptime",
+    stat_level: "Education level",
+    stat_idempotent: "Idempotent loads",
     about_title: "Profile",
     about_edu_title: "Education",
     about_edu_copy:
@@ -144,8 +155,11 @@ const translations = {
     skill_3_copy: "Airflow scheduling, retries, and failure recovery.",
     skill_4_title: "Visualization",
     skill_4_copy: "Metabase KPI storytelling and decision-focused dashboards.",
-    contact_title: "Contact",
+    contact_eyebrow: "Contact",
+    contact_title: "Let's build something solid.",
     contact_copy: "Open to apprenticeship contracts or data engineering roles. Based in Cannes (06400).",
+    contact_phone: "Phone",
+    contact_linkedin_sub: "Professional profile",
     contact_name: "Name",
     contact_email: "Email",
     contact_message: "Message",
@@ -174,7 +188,9 @@ const progressBar = document.getElementById("progressBar");
 const reveals = document.querySelectorAll(".reveal");
 const flowNodes = document.querySelectorAll(".flow-node");
 const langSwitch = document.getElementById("langSwitch");
-const tiltCards = document.querySelectorAll(".project-card");
+const tiltCards = document.querySelectorAll(
+  ".project-card, .stat-card, .skills-grid article, .proof-grid article, .panel, .contact-chip"
+);
 
 let activeFilter = "all";
 let activeLang = localStorage.getItem("portfolio_lang") || "fr";
@@ -242,19 +258,67 @@ function applyProjectFilters() {
 }
 
 function bindCardTilt() {
+  if (window.matchMedia("(pointer: coarse)").matches) return; // skip on touch
   tiltCards.forEach((card) => {
+    const shine = document.createElement("span");
+    shine.className = "tilt-shine";
+    shine.setAttribute("aria-hidden", "true");
+    card.appendChild(shine);
+
+    const max = card.classList.contains("project-card") ? 6 : 9;
+    let frame = 0;
+
     card.addEventListener("mousemove", (event) => {
       const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      const rotateY = ((x / rect.width) - 0.5) * 6;
-      const rotateX = (0.5 - (y / rect.height)) * 6;
-      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      const px = (event.clientX - rect.left) / rect.width;
+      const py = (event.clientY - rect.top) / rect.height;
+      const rotateY = (px - 0.5) * max * 2;
+      const rotateX = (0.5 - py) * max * 2;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+        shine.style.setProperty("--mx", `${px * 100}%`);
+        shine.style.setProperty("--my", `${py * 100}%`);
+        shine.style.opacity = "1";
+      });
     });
     card.addEventListener("mouseleave", () => {
+      cancelAnimationFrame(frame);
       card.style.transform = "";
+      shine.style.opacity = "0";
     });
   });
+}
+
+function buildMarquee() {
+  const track = document.getElementById("marqueeTrack");
+  if (!track || track.childElementCount) return;
+  const items = [
+    "Python", "SQL", "PostgreSQL", "Airflow", "Docker", "SQLAlchemy",
+    "Metabase", "Pandas", "ETL", "Pytest", "Makefile", "CoinGecko API"
+  ];
+  const html = items.map((t) => `<span>${t}</span>`).join("");
+  track.innerHTML = html + html; // duplicate for seamless loop
+}
+
+function bindCursorGlow() {
+  const glow = document.getElementById("cursorGlow");
+  if (!glow) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    glow.style.display = "none";
+    return;
+  }
+  let tx = window.innerWidth / 2;
+  let ty = window.innerHeight / 2;
+  let x = tx;
+  let y = ty;
+  window.addEventListener("mousemove", (e) => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+  (function loop() {
+    x += (tx - x) * 0.12;
+    y += (ty - y) * 0.12;
+    glow.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+    requestAnimationFrame(loop);
+  })();
 }
 
 function initPageTransitions() {
@@ -333,11 +397,13 @@ function handleHeaderVisibilityOnScroll() {
 
 function boot() {
   bindUi();
+  buildMarquee();
   applyLanguage(activeLang);
   applyProjectFilters();
   revealOnScroll();
   runFlowAnimation();
   bindCardTilt();
+  bindCursorGlow();
   initPageTransitions();
   updateProgress();
   window.addEventListener("scroll", () => {
