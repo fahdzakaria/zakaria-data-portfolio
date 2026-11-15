@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Écart BE · étude de cas · Zakaria Fahd</title>
+    <meta name="description" content="Étude de cas : comparateur de fichiers Excel assisté par IA pour bureaux d'études." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="../index.html" class="logo">Zakaria Fahd</a>
+        <nav class="nav" id="nav" aria-label="Pages">
+          <a href="../index.html#projets">Projets</a>
+          <a href="../index.html#experiences">Expériences</a>
+          <a href="../index.html#competences">Compétences</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <a href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer" class="btn btn-clair btn-sm header-cta">GitHub</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main class="wrap" id="contenu">
+      <section class="projet-tete">
+        <a class="retour" href="../index.html#projets">← Tous les projets</a>
+        <p class="label">Étude de cas · 2026</p>
+        <h1 class="titre-degrade">Écart BE</h1>
+        <p class="intro">
+          Un comparateur de fichiers Excel pour bureaux d'études : deux versions d'un même métré, et l'outil montre
+          exactement ce qui a changé, avec les écarts en euros, les anomalies et une synthèse en français clair.
+        </p>
+        <ul class="puces" style="margin-top: 1.5rem">
+          <li>Python 3.11</li><li>FastAPI</li><li>pandas</li><li>openpyxl</li><li>rapidfuzz</li><li>LLM</li><li>Next.js</li><li>Docker</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-clair" href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer">Code sur GitHub</a>
+        </div>
+        <figure class="carte capture">
+          <img src="../assets/ecart-be.jpg" alt="Vue des écarts entre deux versions d'un métré" />
+          <figcaption class="legende"><b>Vue des écarts</b>postes ajoutés, supprimés et modifiés, avec delta en € et en %</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Fonctionnement</p>
+          <h2 class="titre-degrade">Six étapes, une seule commande</h2>
+          <p><code style="font-family: var(--mono)">docker compose up</code> lance l'API et l'interface.</p>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal"><span class="etape-num">01</span><h3 style="margin-top: 0.75rem">Import</h3><p>Fichiers .xlsx, .xls ou .csv, multi-feuilles ; ligne d'en-têtes détectée même sous un cartouche, nombres français compris.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">02</span><h3 style="margin-top: 0.75rem">Rapprochement des colonnes</h3><p>« Qté » retrouvé avec « Quantité » : synonymes métier puis rapprochement flou, corrigeable dans l'interface.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">03</span><h3 style="margin-top: 0.75rem">Comparaison</h3><p>Lignes ajoutées, supprimées, modifiées ; postes renumérotés retrouvés par similarité. 100&nbsp;000 lignes en ~6 s.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">04</span><h3 style="margin-top: 0.75rem">Anomalies</h3><p>Par règles, sans IA : doublons, cellules vides critiques, valeurs aberrantes, Quantité × PU ≠ Total.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">05</span><h3 style="margin-top: 0.75rem">Synthèse IA</h3><p>API Anthropic/OpenAI, modèle local Ollama gratuit, ou repli par règles. L'IA ne reçoit que des agrégats, jamais les fichiers.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">06</span><h3 style="margin-top: 0.75rem">Export</h3><p>Rapport Excel en trois onglets (synthèse, écarts colorés, anomalies) et CSV prêt pour Excel en français.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Captures</p>
+          <h2 class="titre-degrade">L'outil en situation</h2>
+        </div>
+        <div class="grille-2">
+          <figure class="carte capture reveal" style="margin-top: 0">
+            <img src="../assets/ecart-be-mapping.jpg" alt="Rapprochement automatique des colonnes" loading="lazy" />
+            <figcaption class="legende"><b>Rapprochement des colonnes</b>intitulés différents appariés automatiquement</figcaption>
+          </figure>
+          <figure class="carte capture reveal" style="margin-top: 0">
+            <img src="../assets/ecart-be-synthese.jpg" alt="Synthèse IA générée localement" loading="lazy" />
+            <figcaption class="legende"><b>Synthèse IA locale</b>résumé en français des évolutions</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Décisions techniques</p>
+          <h2 class="titre-degrade">Pensé pour un vrai bureau d'études</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal">
+            <h3>Un moteur indépendant du web</h3>
+            <ul>
+              <li>La logique de comparaison est une bibliothèque Python pure, testable hors ligne.</li>
+              <li>L'API FastAPI et l'interface Next.js ne font que l'appeler.</li>
+              <li>70 tests pytest sur des fixtures synthétiques.</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>Confidentialité et coût maîtrisés</h3>
+            <ul>
+              <li>Seuls des agrégats de moins de 6 Ko partent vers l'IA, jamais les chiffrages.</li>
+              <li>Le mode actif est toujours affiché ; en cas d'échec, repli sur les règles avec la raison.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Zakaria Fahd</span>
+        <nav aria-label="Liens">
+          <a href="../index.html#projets">Tous les projets</a>
+          <a href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script src="../app.js"></script>
+  </body>
+</html>

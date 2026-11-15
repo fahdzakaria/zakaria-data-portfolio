@@ -1,385 +1,366 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zakaria Fahd | Data Engineer</title>
+    <title>Zakaria Fahd · Data engineer, en recherche d'alternance</title>
     <meta
       name="description"
-      content="Portfolio Data Engineer: ETL robustes, orchestration, dashboards Metabase et execution fiable."
+      content="Étudiant à Epitech Nice (RNCP 7, IA & Big Data), je construis des pipelines de données de bout en bout : Python, SQL, Airflow, dbt. En recherche d'alternance, basé à Cannes."
     />
+    <meta name="theme-color" content="#000000" />
     <script defer data-domain="fahdzakaria.github.io" src="https://plausible.io/js/script.js"></script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#content" data-i18n="skip_content">Aller au contenu principal</a>
-    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
-    <div class="bg-shape bg-shape-a"></div>
-    <div class="bg-shape bg-shape-b"></div>
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
 
     <header class="site-header">
-      <a href="#top" class="brand">Zakaria Fahd</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-      <nav class="site-nav" id="siteNav">
-        <a href="#projects" data-i18n="nav_projects">Projets</a>
-        <a href="#timeline" data-i18n="nav_timeline">Formation</a>
-        <a href="#proof" data-i18n="nav_quality">Qualite</a>
-        <a href="#skills" data-i18n="nav_skills">Competences</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-      </nav>
-      <button class="lang-switch" id="langSwitch" aria-label="Switch language">EN</button>
+      <div class="wrap">
+        <a href="#haut" class="logo">Zakaria Fahd</a>
+        <nav class="nav" id="nav" aria-label="Sections">
+          <a href="#projets">Projets</a>
+          <a href="#experiences">Expériences</a>
+          <a href="#competences">Compétences</a>
+          <a href="#formation">Formation</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn btn-clair btn-sm header-cta">Me contacter</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
     </header>
 
-    <main id="top" tabindex="-1">
-      <div id="content"></div>
-      <section class="hero reveal">
-        <div class="hero-text">
-          <p class="eyebrow" data-i18n="hero_eyebrow">Data Engineering Portfolio</p>
-          <h1 data-i18n="hero_title">
-            Je concois des pipelines data robustes qui transforment des donnees en decisions concretes.
-          </h1>
-          <p class="hero-copy" data-i18n="hero_copy">
-            Etudiant Epitech Nice (filiere Intelligence Artificielle & Big Data), je construis des
-            flux de donnees de bout en bout: ingestion, transformation, modelisation SQL,
-            orchestration et visualisation.
-          </p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#projects" data-i18n="hero_btn_projects">Voir les projets</a>
-            <a class="btn btn-ghost" href="#contact" data-i18n="hero_btn_contact">Me contacter</a>
+    <main id="haut">
+      <!-- ---------- HERO : verre cannelé + aperçu d'un vrai projet ---------- -->
+      <section class="hero" id="contenu" tabindex="-1">
+        <canvas class="hero-fond" id="heroFond" aria-hidden="true"></canvas>
+        <div class="hero-voile" aria-hidden="true"></div>
+
+        <div class="wrap hero-grille">
+          <div>
+            <span class="pastille">En recherche d'alternance · data engineering</span>
+            <h1>
+              <span class="titre-degrade">Des données brutes</span><br />
+              <span class="accent">aux décisions.</span>
+            </h1>
+            <p class="hero-texte">
+              Étudiant à Epitech Nice (RNCP 7, option IA &amp; Big Data), je construis des pipelines de
+              bout en bout : ingestion, qualité, modélisation SQL, orchestration et restitution. Basé à Cannes.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-clair" href="#projets">Voir les projets</a>
+              <a class="btn btn-texte" href="#contact">Me contacter <span aria-hidden="true">›</span></a>
+            </div>
           </div>
-          <div class="hero-meta">
-            <a href="mailto:fahed.zakaria@epitech.eu">fahed.zakaria@epitech.eu</a>
-            <span class="sep"></span>
-            <a href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer">GitHub</a>
+
+          <a
+            class="carte apercu"
+            href="https://immo-insights-06.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Ouvrir Immo Insights N°06, mon projet en ligne"
+          >
+            <div class="apercu-image">
+              <img src="./assets/carte-littoral.svg" alt="Carte des prix médians au m² des appartements par commune, littoral des Alpes-Maritimes" width="640" height="420" />
+              <span class="apercu-etiquette label" style="color: var(--ink)">€/m² médian · 24 mois</span>
+            </div>
+            <div class="apercu-pied">
+              <div class="legende">
+                <b>Immo Insights N°06, littoral</b>
+                appartements, 7 classes de moins de 3&nbsp;039 à plus de 5&nbsp;775 €/m²
+                <div class="echelle" aria-hidden="true">
+                  <span style="background: #2a1a0c"></span><span style="background: #43260e"></span><span style="background: #653410"></span><span style="background: #8f4a12"></span><span style="background: #bd6614"></span><span style="background: #e88a1a"></span><span style="background: #ffb547"></span>
+                </div>
+              </div>
+              <span class="lien">Voir le site →</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker-piste" id="tickerPiste">
+            <span>Python</span><span>SQL</span><span>Airflow</span><span>dbt</span><span>DuckDB</span><span>Spark</span><span>PostgreSQL</span><span>FastAPI</span><span>Docker</span><span>Next.js</span><span>Power BI</span><span>Pandas</span><span>Great Expectations</span><span>Git</span>
           </div>
         </div>
-
-        <div class="hero-stage">
-          <canvas id="heroCanvas"></canvas>
-          <div class="float-chip fc-a"><b class="c1">99.9%</b><span>uptime</span></div>
-          <div class="float-chip fc-b"><b class="c2">+1.2M</b><span>events / j</span></div>
-          <div class="float-chip fc-c"><b class="c3">&lt; 5 min</b><span>latency</span></div>
-        </div>
       </section>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track" id="marqueeTrack"></div>
-      </div>
-
-      <div class="stat-strip reveal">
-        <div class="stat-card"><div class="num">2</div><div class="lbl" data-i18n="stat_pipelines">Pipelines en production</div></div>
-        <div class="stat-card"><div class="num">99.9%</div><div class="lbl" data-i18n="stat_uptime">Disponibilite ingestion</div></div>
-        <div class="stat-card"><div class="num">RNCP 7</div><div class="lbl" data-i18n="stat_level">Niveau de formation</div></div>
-        <div class="stat-card"><div class="num">100%</div><div class="lbl" data-i18n="stat_idempotent">Chargements idempotents</div></div>
-      </div>
-
-      <section class="section reveal">
-        <div class="section-head"><h2 data-i18n="about_title">Profil</h2></div>
-        <div class="panel-grid">
-          <article class="panel">
-            <h3 data-i18n="about_edu_title">Formation</h3>
-            <p data-i18n="about_edu_copy">
-              Architecte de Systemes d'Information (RNCP Niv. 7) a Epitech, option IA & Big Data
-              (2026-2028). Parcours universitaire prealable en informatique.
-            </p>
+      <!-- ---------- CHIFFRES (tous tirés de projets réels) ---------- -->
+      <section class="section wrap" aria-labelledby="chiffres-titre">
+        <div class="section-tete reveal">
+          <p class="label">En chiffres</p>
+          <h2 id="chiffres-titre" class="titre-degrade">Des volumes réels, pas des maquettes</h2>
+          <p>Quatre ordres de grandeur tirés de mes stages et de mes projets.</p>
+        </div>
+        <div class="chiffres">
+          <article class="carte chiffre reveal">
+            <span class="label">Ventes fiabilisées</span>
+            <span class="valeur tabular">128&nbsp;600</span>
+            <p>Transactions immobilières nettoyées, géocodées et agrégées.</p>
+            <span class="legende">Immo Insights N°06</span>
           </article>
-          <article class="panel">
-            <h3 data-i18n="about_goal_title">Objectif</h3>
-            <p data-i18n="about_goal_copy">
-              Contribuer a des projets Data/IA en transformant des donnees complexes en insights
-              exploitables pour la decision.
-            </p>
+          <article class="carte chiffre reveal">
+            <span class="label">Transactions par jour</span>
+            <span class="valeur tabular">~500&nbsp;000</span>
+            <p>Recharges consolidées dans un datamart dbt + Airflow.</p>
+            <span class="legende">Ooredoo · 2025</span>
+          </article>
+          <article class="carte chiffre reveal">
+            <span class="label">Jobs Spark optimisés</span>
+            <span class="valeur tabular">50 → 20 min</span>
+            <p>Trois traitements accélérés, soit 60 % de temps en moins.</p>
+            <span class="legende">Ooredoo · 2025</span>
+          </article>
+          <article class="carte chiffre reveal">
+            <span class="label">Agences utilisatrices</span>
+            <span class="valeur tabular">~150</span>
+            <p>Conseillers servis par le portail interne de suivi des demandes.</p>
+            <span class="legende">BIAT · 2024</span>
           </article>
         </div>
       </section>
 
-      <section class="section reveal">
-        <div class="section-head">
-          <h2 data-i18n="flow_title">Pipeline interactif</h2>
-        </div>
-        <p class="section-copy" data-i18n="flow_copy">
-          Sequence d'execution appliquee sur mes projets pour garantir qualite et robustesse.
-        </p>
-        <div class="flow" id="flow">
-          <article class="flow-node is-active">
-            <h3>Extract</h3>
-            <p data-i18n="flow_extract">Sources API / CSV controlees et traceables.</p>
-          </article>
-          <article class="flow-node">
-            <h3>Transform</h3>
-            <p data-i18n="flow_transform">Normalisation, controles qualite, metriques.</p>
-          </article>
-          <article class="flow-node">
-            <h3>Load</h3>
-            <p data-i18n="flow_load">Upsert idempotent, indexation, SQL performant.</p>
-          </article>
-          <article class="flow-node">
-            <h3>Observe</h3>
-            <p data-i18n="flow_observe">Tests, logs, dashboards actionnables.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="projects" aria-labelledby="projects-heading">
-        <div class="section-head">
-          <h2 id="projects-heading" data-i18n="projects_title">Projets</h2>
-        </div>
-        <div class="project-toolbar">
-          <label class="visually-hidden" for="searchInput" data-i18n="search_label">Recherche projet</label>
-          <input
-            type="text"
-            id="searchInput"
-            class="search-input"
-            placeholder="Rechercher un projet ou une stack..."
-            data-i18n-placeholder="search_placeholder"
-          />
+      <!-- ---------- PROJETS ---------- -->
+      <section class="section wrap" id="projets" aria-labelledby="projets-titre">
+        <div class="section-tete reveal">
+          <p class="label">Projets</p>
+          <h2 id="projets-titre" class="titre-degrade">Ce que j'ai construit</h2>
+          <p>Chaque projet est public sur GitHub, avec son code, ses tests et sa documentation.</p>
         </div>
 
-        <div class="filters" id="projectFilters">
-          <button class="filter is-active" data-filter="all" data-i18n="filter_all" aria-pressed="true">Tous</button>
-          <button class="filter" data-filter="etl" aria-pressed="false">ETL</button>
-          <button class="filter" data-filter="orchestration" aria-pressed="false">Orchestration</button>
-          <button class="filter" data-filter="analytics" aria-pressed="false">Analytics</button>
-        </div>
-
-        <div class="project-grid" id="projectGrid">
-          <article
-            class="project-card reveal"
-            data-category="etl analytics orchestration"
-            data-name="immo etl"
-            data-impact="9"
-            data-recent="2026-02-11"
-            data-stack="python postgresql sqlalchemy metabase docker"
-          >
-            <img src="./assets/immo-dashboard.png" alt="IMMO dashboard" />
-            <div class="project-body">
-              <h3>IMMO ETL</h3>
-              <p data-i18n="immo_desc">
-                Pipeline Zillow ZHVI vers Postgres avec transformations MoM/YoY, chargement
-                idempotent et dashboard de pilotage.
+        <div class="projets">
+          <article class="carte projet projet-vedette carte-survol reveal">
+            <div class="projet-visuel">
+              <img src="./assets/immo-insights.jpg" alt="Page d'accueil du site Immo Insights N°06" loading="lazy" />
+              <p class="legende"><b>immo-insights-06.vercel.app</b>en ligne, mis à jour chaque lundi</p>
+            </div>
+            <div class="projet-corps">
+              <span class="label">2026 · Data engineering</span>
+              <h3>Immo Insights N°06</h3>
+              <p>
+                Plateforme d'analyse du marché immobilier des Alpes-Maritimes : pipeline ELT médaillon sur six
+                sources publiques, marts dbt/DuckDB testés, prix par commune et par quartier, carte interactive.
+                Reconstruit de zéro et republié automatiquement chaque semaine.
               </p>
-              <div class="tech-stack">
-                <span>Python</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Metabase</span>
-              </div>
-              <div class="project-links">
-                <a class="inline-link" href="./projects/immo.html" data-i18n="project_case_study">Case study</a>
-                <a
-                  class="inline-link"
-                  href="https://github.com/fahdzakaria/immo-etl-zillow-postgres/blob/main/README.md"
-                  target="_blank"
-                  rel="noreferrer"
-                >README</a>
+              <ul class="puces">
+                <li>Python</li><li>Airflow</li><li>dbt</li><li>DuckDB</li><li>FastAPI</li><li>Next.js</li><li>GitHub Actions</li>
+              </ul>
+              <div class="projet-liens">
+                <a class="btn btn-clair btn-sm" href="./projects/immo-insights.html">Étude de cas</a>
+                <a class="btn btn-sombre btn-sm" href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer">Site en ligne</a>
+                <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/immo-insights-06" target="_blank" rel="noreferrer">GitHub</a>
               </div>
             </div>
           </article>
 
-          <article
-            class="project-card reveal"
-            data-category="etl analytics orchestration"
-            data-name="crypto ingest"
-            data-impact="8"
-            data-recent="2026-02-11"
-            data-stack="python airflow docker postgresql metabase"
-          >
-            <img src="./assets/crypto-dashboard.png" alt="CRYPTO dashboard" />
-            <div class="project-body">
-              <h3>CRYPTO Ingest</h3>
-              <p data-i18n="crypto_desc">
-                Ingestion CoinGecko resiliente: retries/backoff, tolerance d'erreur par coin, upsert
-                SQL et vues materialisees.
+          <article class="carte projet carte-survol reveal">
+            <div class="projet-visuel">
+              <img src="./assets/ecart-be.jpg" alt="Écart BE : vue des écarts entre deux versions d'un métré Excel" loading="lazy" />
+              <p class="legende"><b>Vue des écarts</b>métré R+4, indice A → B</p>
+            </div>
+            <div class="projet-corps">
+              <span class="label">2026 · Outil métier + IA</span>
+              <h3>Écart BE</h3>
+              <p>
+                Comparateur de fichiers Excel pour bureaux d'études : écarts ligne à ligne, colonnes rapprochées
+                malgré des intitulés différents, anomalies, synthèse IA (locale possible) et rapport Excel.
               </p>
-              <div class="tech-stack">
-                <span>Python</span><span>Airflow</span><span>Docker</span><span>PostgreSQL</span>
+              <ul class="puces">
+                <li>FastAPI</li><li>pandas</li><li>openpyxl</li><li>LLM</li><li>Next.js</li>
+              </ul>
+              <div class="projet-liens">
+                <a class="btn btn-clair btn-sm" href="./projects/ecart-be.html">Étude de cas</a>
+                <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer">GitHub</a>
               </div>
-              <div class="project-links">
-                <a class="inline-link" href="./projects/crypto.html" data-i18n="project_case_study">Case study</a>
-                <a
-                  class="inline-link"
-                  href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres/blob/main/README.md"
-                  target="_blank"
-                  rel="noreferrer"
-                >README</a>
+            </div>
+          </article>
+
+          <article class="carte projet carte-survol reveal">
+            <div class="projet-visuel">
+              <img src="./assets/crypto-dashboard.png" alt="Tableau de bord Metabase du suivi des prix crypto" loading="lazy" />
+              <p class="legende"><b>Tableau de bord Metabase</b>prix, volume, capitalisation</p>
+            </div>
+            <div class="projet-corps">
+              <span class="label">2025 · ETL temps réel</span>
+              <h3>Suivi des prix crypto</h3>
+              <p>
+                Ingestion CoinGecko résistante aux erreurs d'API (reprises, erreur isolée par crypto), upsert
+                PostgreSQL et vues agrégées par heure et par jour pour Metabase.
+              </p>
+              <ul class="puces">
+                <li>Python</li><li>Airflow</li><li>Docker</li><li>PostgreSQL</li><li>Metabase</li>
+              </ul>
+              <div class="projet-liens">
+                <a class="btn btn-clair btn-sm" href="./projects/crypto.html">Étude de cas</a>
+                <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer">GitHub</a>
               </div>
             </div>
           </article>
         </div>
-        <p class="empty-state" id="emptyState" data-i18n="empty_state">Aucun projet ne correspond.</p>
-      </section>
 
-      <section class="section reveal" id="timeline" aria-labelledby="timeline-heading">
-        <div class="section-head">
-          <h2 id="timeline-heading" data-i18n="timeline_title">Formation</h2>
-        </div>
-        <p class="section-copy" data-i18n="timeline_copy">
-          Parcours academique en informatique, data et IA.
+        <p class="archives reveal">
+          Projet plus ancien : <a href="./projects/immo.html">IMMO ETL</a>, pipeline Zillow ZHVI → PostgreSQL idempotent
+          avec tableau de bord Metabase.
         </p>
-        <div class="timeline-list" id="timelineList">
-          <article class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <p class="timeline-meta">2022</p>
-              <h3 data-i18n="timeline_item_bac_title">Baccalaureat General - Mention Bien</h3>
-              <p data-i18n="timeline_item_bac_copy">Option Mathematiques / NSI - Lycee Gustave Flaubert.</p>
+      </section>
+
+      <!-- ---------- EXPÉRIENCES ---------- -->
+      <section class="section wrap" id="experiences" aria-labelledby="experiences-titre">
+        <div class="section-tete reveal">
+          <p class="label">Expériences</p>
+          <h2 id="experiences-titre" class="titre-degrade">Deux stages, des résultats mesurés</h2>
+        </div>
+        <div class="experiences">
+          <article class="carte experience reveal">
+            <div>
+              <h3>Ooredoo</h3>
+              <p class="poste">Stagiaire data analyst / engineer</p>
+              <p class="label quand">Tunis · mars → juin 2025</p>
             </div>
+            <ul>
+              <li>Conception d'un <b>datamart des recharges</b> (dbt + Airflow, ~500&nbsp;000 transactions par jour), devenu la source unique des rapports de revenus prépayés.</li>
+              <li>Contrôles qualité avec Great Expectations : <b>2,7 % de doublons</b> détectés, ARPU reporté corrigé de <b>11,2 à 10,9 TND</b>.</li>
+              <li>Optimisation de <b>3 jobs Spark (50 → 20 min)</b> et tableau de bord Power BI ARPU / recharges par gouvernorat.</li>
+            </ul>
           </article>
-          <article class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <p class="timeline-meta">2022 - 2024</p>
-              <h3 data-i18n="timeline_item_uni_title">Universite d'Avignon</h3>
-              <p data-i18n="timeline_item_uni_copy">Parcours informatique et bases en developpement logiciel.</p>
+          <article class="carte experience reveal">
+            <div>
+              <h3>BIAT</h3>
+              <p class="poste">Stagiaire développeur full-stack &amp; data</p>
+              <p class="label quand">Tunis · mars → juin 2024</p>
             </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <p class="timeline-meta">2025</p>
-              <h3 data-i18n="timeline_item_mtp_title">Universite de Montpellier</h3>
-              <p data-i18n="timeline_item_mtp_copy">Approfondissement des approches data et IA appliquees.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <span class="timeline-dot"></span>
-            <div class="timeline-content">
-              <p class="timeline-meta">2026 - 2028</p>
-              <h3 data-i18n="timeline_item_epitech_title">Epitech Nice - RNCP 7</h3>
-              <p data-i18n="timeline_item_epitech_copy">Architecte SI, specialisation Intelligence Artificielle & Big Data.</p>
-            </div>
+            <ul>
+              <li>Développement d'un <b>portail interne de suivi des demandes clients</b> (Angular, Spring Boot), utilisé par les conseillers de ~150 agences.</li>
+              <li>Mise en place de l'alimentation quotidienne des données du portail (<b>~2&nbsp;000 demandes par jour</b>).</li>
+              <li>Analyse des délais : <b>9 jours en moyenne</b> pour un chéquier contre 3 annoncés, avec des tableaux de bord intégrés au portail.</li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <section class="section reveal" id="proof">
-        <div class="section-head">
-          <h2 data-i18n="proof_title">Proof of quality</h2>
+      <!-- ---------- COMPÉTENCES (bloc « code » à onglets) ---------- -->
+      <section class="section wrap" id="competences" aria-labelledby="competences-titre">
+        <div class="section-tete reveal">
+          <p class="label">Compétences</p>
+          <h2 id="competences-titre" class="titre-degrade">Ma boîte à outils</h2>
+          <p>Ce que j'utilise réellement dans mes projets et en stage.</p>
         </div>
-        <div class="proof-grid">
-          <article>
-            <h3 data-i18n="proof_test_title">Tests</h3>
-            <p data-i18n="proof_test_copy">
-              Validation des transformations et des comportements critiques via Pytest.
-            </p>
-            <span class="badge">Pytest</span>
-          </article>
-          <article>
-            <h3 data-i18n="proof_data_title">Fiabilite data</h3>
-            <p data-i18n="proof_data_copy">
-              Schemas explicites, contraintes SQL et chargements idempotents.
-            </p>
-            <span class="badge">PostgreSQL</span>
-          </article>
-          <article>
-            <h3 data-i18n="proof_ops_title">Operations</h3>
-            <p data-i18n="proof_ops_copy">
-              Docker Compose, Makefile et runbooks pour un setup reproductible.
-            </p>
-            <span class="badge">Docker + Make</span>
-          </article>
-          <article>
-            <h3 data-i18n="proof_bi_title">Lecture metier</h3>
-            <p data-i18n="proof_bi_copy">
-              Dashboards Metabase pour piloter tendances, comparatifs et anomalies.
-            </p>
-            <span class="badge">Metabase</span>
-          </article>
+        <div class="carte code-bloc reveal" data-onglets>
+          <div class="onglets" role="tablist" aria-label="Familles de compétences">
+            <button role="tab" id="t-data" aria-controls="p-data">Data</button>
+            <button role="tab" id="t-langages" aria-controls="p-langages">Langages</button>
+            <button role="tab" id="t-dev" aria-controls="p-dev">Back / Front</button>
+            <button role="tab" id="t-ops" aria-controls="p-ops">Bases, DevOps &amp; BI</button>
+          </div>
+          <pre class="code" role="tabpanel" id="p-data" aria-labelledby="t-data"><span class="n">1</span><span class="c">// data &amp; orchestration</span>
+<span class="n">2</span><span class="k">orchestration</span> = <span class="s">"Airflow"</span>          <span class="c">// DAG quotidien + publication hebdo (GitHub Actions)</span>
+<span class="n">3</span><span class="k">transformation</span> = <span class="s">"dbt"</span>             <span class="c">// marts testés, médaillon bronze → gold</span>
+<span class="n">4</span><span class="k">moteurs</span> = [<span class="s">"DuckDB"</span>, <span class="s">"Spark"</span>]   <span class="c">// PySpark en stage chez Ooredoo</span>
+<span class="n">5</span><span class="k">qualité</span> = <span class="s">"Great Expectations"</span>  <span class="c">// + tests dbt et pytest</span>
+<span class="n">6</span><span class="k">patrons</span> = [<span class="s">"ETL"</span>, <span class="s">"ELT"</span>, <span class="s">"upsert idempotent"</span>]</pre>
+          <pre class="code" role="tabpanel" id="p-langages" aria-labelledby="t-langages" hidden><span class="n">1</span><span class="c">// langages</span>
+<span class="n">2</span><span class="k">python</span> = [<span class="s">"pandas"</span>, <span class="s">"NumPy"</span>, <span class="s">"Matplotlib"</span>]
+<span class="n">3</span><span class="k">sql</span> = <span class="s">"avancé"</span>                    <span class="c">// fenêtres, CTE, modélisation analytique</span>
+<span class="n">4</span><span class="k">javascript</span> = <span class="s">"TypeScript, React"</span>
+<span class="n">5</span><span class="k">langues</span> = [<span class="s">"français"</span>, <span class="s">"anglais C1"</span>, <span class="s">"arabe C1"</span>]</pre>
+          <pre class="code" role="tabpanel" id="p-dev" aria-labelledby="t-dev" hidden><span class="n">1</span><span class="c">// back-end et front-end</span>
+<span class="n">2</span><span class="k">api</span> = [<span class="s">"FastAPI"</span>, <span class="s">"API REST"</span>, <span class="s">"Spring Boot"</span>]
+<span class="n">3</span><span class="k">front</span> = [<span class="s">"Next.js"</span>, <span class="s">"React Native"</span>, <span class="s">"Angular"</span>]
+<span class="n">4</span><span class="k">ia</span> = <span class="s">"API LLM, modèles locaux"</span>     <span class="c">// synthèse d'Écart BE</span></pre>
+          <pre class="code" role="tabpanel" id="p-ops" aria-labelledby="t-ops" hidden><span class="n">1</span><span class="c">// bases de données, DevOps et BI</span>
+<span class="n">2</span><span class="k">bases</span> = [<span class="s">"PostgreSQL"</span>, <span class="s">"MySQL"</span>, <span class="s">"DuckDB"</span>]
+<span class="n">3</span><span class="k">devops</span> = [<span class="s">"Git"</span>, <span class="s">"Docker"</span>, <span class="s">"Bash"</span>, <span class="s">"Linux"</span>, <span class="s">"GitHub Actions"</span>]
+<span class="n">4</span><span class="k">bi</span> = [<span class="s">"Power BI"</span>, <span class="s">"Metabase"</span>]
+<span class="n">5</span><span class="k">soft_skills</span> = [<span class="s">"autonomie"</span>, <span class="s">"rigueur"</span>, <span class="s">"vulgarisation"</span>]</pre>
         </div>
       </section>
 
-      <section class="section reveal" id="skills">
-        <div class="section-head">
-          <h2 data-i18n="skills_title">Competences</h2>
+      <!-- ---------- FORMATION ---------- -->
+      <section class="section wrap" id="formation" aria-labelledby="formation-titre">
+        <div class="section-tete reveal">
+          <p class="label">Formation</p>
+          <h2 id="formation-titre" class="titre-degrade">Parcours</h2>
         </div>
-        <div class="skills-grid">
-          <article>
-            <h3 data-i18n="skill_1_title">Data Engineering</h3>
-            <p data-i18n="skill_1_copy">ETL, ingestion API, batch processing, qualite des donnees.</p>
-          </article>
-          <article>
-            <h3 data-i18n="skill_2_title">Data Platform</h3>
-            <p data-i18n="skill_2_copy">PostgreSQL, modelisation analytique, performance SQL.</p>
-          </article>
-          <article>
-            <h3 data-i18n="skill_3_title">Orchestration</h3>
-            <p data-i18n="skill_3_copy">Airflow, planification, retries, reprise sur incident.</p>
-          </article>
-          <article>
-            <h3 data-i18n="skill_4_title">Visualization</h3>
-            <p data-i18n="skill_4_copy">Metabase, storytelling KPI et dashboards decisionnels.</p>
-          </article>
+        <div class="parcours reveal">
+          <div class="etape">
+            <span class="label">2026 → 2028</span>
+            <div>
+              <h3>Epitech Nice · Architecte de systèmes d'information</h3>
+              <p>RNCP 38114, niveau 7, option Intelligence Artificielle &amp; Big Data. En recherche d'alternance.</p>
+            </div>
+            <span class="legende">Bac +5</span>
+          </div>
+          <div class="etape">
+            <span class="label">2025</span>
+            <div>
+              <h3>Université de Montpellier · Licence 3 informatique</h3>
+              <p>Licence informatique, 3ᵉ année.</p>
+            </div>
+            <span class="legende">Bac +3</span>
+          </div>
+          <div class="etape">
+            <span class="label">2022 → 2024</span>
+            <div>
+              <h3>Université d'Avignon · Licence 1 et 2 informatique</h3>
+              <p>Parcours informatique et bases du développement logiciel.</p>
+            </div>
+            <span class="legende">Bac +2</span>
+          </div>
+          <div class="etape">
+            <span class="label">2022</span>
+            <div>
+              <h3>Baccalauréat général · mention Bien</h3>
+              <p>Spécialités mathématiques et NSI, lycée Gustave Flaubert.</p>
+            </div>
+            <span class="legende">Bac</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- CONTACT ---------- -->
+      <section class="section wrap" id="contact" aria-labelledby="contact-titre">
+        <div class="carte contact reveal">
+          <div>
+            <p class="label">Contact</p>
+            <h2 id="contact-titre" class="titre-degrade" style="margin-top: 1.25rem">Construisons quelque chose de solide.</h2>
+            <p class="contact-texte">
+              Je recherche une alternance en data engineering ou en développement, dans le cadre de mon cursus
+              Epitech (2026 → 2028). Basé à Cannes, permis B et véhiculé.
+            </p>
+            <div class="contact-liens">
+              <a class="contact-lien" href="mailto:fahed.zakaria@epitech.eu"><span>E-mail</span><span>fahed.zakaria@epitech.eu</span></a>
+              <a class="contact-lien" href="tel:+33762710333"><span>Téléphone</span><span>+33 7 62 71 03 33</span></a>
+              <a class="contact-lien" href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer"><span>GitHub</span><span>@fahdzakaria</span></a>
+            </div>
+          </div>
+
+          <form id="contactForm" class="formulaire" action="https://formsubmit.co/fahed.zakaria@epitech.eu" method="POST">
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <label>Nom<input class="champ" name="name" type="text" autocomplete="name" required /></label>
+            <label>E-mail<input class="champ" name="email" type="email" autocomplete="email" required /></label>
+            <label>Message<textarea class="champ" name="message" rows="5" required></textarea></label>
+            <button class="btn btn-clair" type="submit">Envoyer</button>
+            <p class="statut" id="formStatut" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
 
-    <footer class="section contact-section reveal" id="contact">
-      <div class="contact-shell">
-        <div class="contact-intro">
-          <p class="eyebrow" data-i18n="contact_eyebrow">Contact</p>
-          <h2 data-i18n="contact_title">Construisons quelque chose de solide.</h2>
-          <p data-i18n="contact_copy">
-            Recherche contrat d'apprentissage / mission data engineering. Base a Cannes (06400).
-          </p>
-
-          <div class="contact-quick">
-            <a class="contact-chip" href="mailto:fahed.zakaria@epitech.eu">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="chip-label">Email<span class="chip-sub">fahed.zakaria@epitech.eu</span></span>
-            </a>
-            <a class="contact-chip" href="tel:+33762710333">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 18l-1 4a16 16 0 0 1-14-14Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="chip-label"><span data-i18n="contact_phone">Telephone</span><span class="chip-sub">+33 7 62 71 03 33</span></span>
-            </a>
-            <a class="contact-chip" href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-              <span class="chip-label">GitHub<span class="chip-sub">@fahdzakaria</span></span>
-            </a>
-            <a class="contact-chip" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg>
-              <span class="chip-label">LinkedIn<span class="chip-sub" data-i18n="contact_linkedin_sub">Profil professionnel</span></span>
-            </a>
-          </div>
-        </div>
-
-        <form
-          id="contactForm"
-          class="contact-form"
-          action="https://formsubmit.co/fahed.zakaria@epitech.eu"
-          method="POST"
-        >
-          <input type="hidden" name="_subject" value="Nouveau message portfolio" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" />
-
-          <div class="form-row">
-            <label for="contactName" data-i18n="contact_name">Nom</label>
-            <input id="contactName" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div class="form-row">
-            <label for="contactEmail" data-i18n="contact_email">Email</label>
-            <input id="contactEmail" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="form-row">
-            <label for="contactMessage" data-i18n="contact_message">Message</label>
-            <textarea id="contactMessage" name="message" rows="5" required></textarea>
-          </div>
-
-          <button class="btn-send" type="submit" data-i18n="contact_send">Envoyer</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Zakaria Fahd · Cannes</span>
+        <nav aria-label="Liens">
+          <a href="#projets">Projets</a>
+          <a href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer">Immo Insights</a>
+          <a href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
       </div>
-
-      <small>(c) <span id="year"></span> Zakaria Fahd</small>
     </footer>
+    <div class="grain" aria-hidden="true"></div>
 
     <script src="./app.js"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-        }
-      }
-    </script>
-    <script type="module" src="./scene.js"></script>
+    <script src="./scene.js"></script>
   </body>
 </html>
