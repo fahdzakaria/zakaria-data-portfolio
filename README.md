@@ -1,10 +1,10 @@
-# Portfolio — Zakaria Fahd
+# Portfolio — Fahed Zakaria
 
 Portfolio de data engineer (V5), site statique HTML / CSS / JS déployé sur Vercel.
 
-Même système de design que [Immo Insights N°06](https://immo-insights-06.vercel.app) : noir pur, un seul
-accent ambre, polices Poppins / Inter / Geist Mono (logo en Instrument Serif), fond du hero en verre
-cannelé WebGL, aucun visuel décoratif (chaque image vient d'un vrai projet).
+Même système de design (avec son propre accent) que [Immo Insights N°06](https://immo-insights-06.vercel.app) : noir pur, un seul
+accent vert mousse, polices Poppins / Inter / Geist Mono (logo en Instrument Serif), fond du hero en verre
+cannelé WebGL (haut de page en cours de refonte), aucun visuel décoratif (chaque image vient d'un vrai projet).
 
 ## Pages
 
@@ -19,7 +19,6 @@ cannelé WebGL, aucun visuel décoratif (chaque image vient d'un vrai projet).
 - `styles.css` : système de design partagé
 - `app.js` : menu mobile, apparition au défilement, onglets, formulaire (FormSubmit)
 - `scene.js` : shader WebGL du hero (repli CSS, figé si mouvement réduit)
-- `tools/carte_littoral.py` : régénère `assets/carte-littoral.svg` à partir des données publiées par Immo Insights
 
 ## Lancer en local
 

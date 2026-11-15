@@ -3,6 +3,12 @@
 
 document.documentElement.classList.remove("no-js");
 
+// Textes de l'interface selon la langue de la page (<html lang>)
+const EN = document.documentElement.lang === "en";
+const T = EN
+  ? { menu: "Menu", fermer: "Close", envoi: "Sending…", ok: "Message sent, thank you! I'll get back to you soon.", ko: "Sending failed. Email me directly at fahed.zakaria@epitech.eu." }
+  : { menu: "Menu", fermer: "Fermer", envoi: "Envoi en cours…", ok: "Message envoyé, merci ! Je réponds rapidement.", ko: "L'envoi a échoué. Écrivez-moi directement à fahed.zakaria@epitech.eu." };
+
 // Menu mobile
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
@@ -10,13 +16,13 @@ if (menuBtn && nav) {
   menuBtn.addEventListener("click", () => {
     const ouvert = nav.classList.toggle("ouvert");
     menuBtn.setAttribute("aria-expanded", String(ouvert));
-    menuBtn.textContent = ouvert ? "Fermer" : "Menu";
+    menuBtn.textContent = ouvert ? T.fermer : T.menu;
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && nav.classList.contains("ouvert")) {
       nav.classList.remove("ouvert");
       menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.textContent = "Menu";
+      menuBtn.textContent = T.menu;
       menuBtn.focus();
     }
   });
@@ -24,7 +30,7 @@ if (menuBtn && nav) {
     a.addEventListener("click", () => {
       nav.classList.remove("ouvert");
       menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.textContent = "Menu";
+      menuBtn.textContent = T.menu;
     }),
   );
 }
@@ -99,17 +105,13 @@ document.querySelectorAll("[data-onglets]").forEach((bloc) => {
   choisir(0);
 });
 
-// Bandeau : piste doublée pour un défilement sans couture
-const piste = document.getElementById("tickerPiste");
-if (piste) piste.innerHTML += piste.innerHTML;
-
 // Formulaire de contact (FormSubmit, envoi sans quitter la page)
 const form = document.getElementById("contactForm");
 const statut = document.getElementById("formStatut");
 if (form && statut) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    statut.textContent = "Envoi en cours…";
+    statut.textContent = T.envoi;
     try {
       const url = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
       const rep = await fetch(url, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
@@ -117,9 +119,9 @@ if (form && statut) {
       const donnees = await rep.json().catch(() => ({}));
       if (!rep.ok || String(donnees.success) !== "true") throw new Error(String(rep.status));
       form.reset();
-      statut.textContent = "Message envoyé, merci ! Je réponds rapidement.";
+      statut.textContent = T.ok;
     } catch {
-      statut.textContent = "L'envoi a échoué. Écrivez-moi directement à fahed.zakaria@epitech.eu.";
+      statut.textContent = T.ko;
     }
   });
 }

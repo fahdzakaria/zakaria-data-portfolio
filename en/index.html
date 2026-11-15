@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fahed Zakaria · Data engineer, seeking a work-study apprenticeship</title>
+    <meta
+      name="description"
+      content="Student at Epitech Nice (Master's-level, RNCP level 7, AI & Big Data), I build end-to-end data pipelines: Python, SQL, Airflow, dbt. Seeking a work-study apprenticeship, based in Cannes, France."
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="alternate" hreflang="fr" href="https://zakaria-data-portfolio.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/" />
+    <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a href="#haut" class="logo">Fahed Zakaria</a>
+        <nav class="nav" id="nav" aria-label="Sections">
+          <a href="#projets">Projects</a>
+          <a href="#experiences">Experience</a>
+          <a href="#competences">Skills</a>
+          <a href="#formation">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sombre btn-sm langue" href="../index.html" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+        <a href="#contact" class="btn btn-clair btn-sm header-cta">Contact me</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main id="haut">
+      <!-- ---------- HERO: fluted glass + preview of a real project ---------- -->
+      <section class="hero" id="contenu" tabindex="-1">
+        <canvas class="hero-fond" id="heroFond" aria-hidden="true"></canvas>
+        <div class="hero-voile" aria-hidden="true"></div>
+
+        <div class="wrap hero-grille">
+          <div>
+            <span class="pastille">Seeking a work-study apprenticeship · data engineering</span>
+            <h1>
+              <span class="titre-degrade">From raw data</span><br />
+              <span class="accent">to decisions.</span>
+            </h1>
+            <p class="hero-texte">
+              Student at Epitech Nice (Master's-level, RNCP level 7, AI &amp; Big Data track), I build end-to-end
+              pipelines: ingestion, quality checks, SQL modeling, orchestration and reporting. Based in Cannes, France.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-clair" href="#projets">See the projects</a>
+              <a class="btn btn-texte" href="#contact">Contact me <span aria-hidden="true">›</span></a>
+            </div>
+          </div>
+
+          <!-- Placeholder for the future top-of-page visual (to be defined) -->
+          <div class="hero-visuel" aria-hidden="true"></div>
+        </div>
+
+      </section>
+
+      <!-- ---------- NUMBERS (all from real projects) ---------- -->
+      <section class="section wrap" aria-labelledby="chiffres-titre">
+        <div class="section-tete reveal">
+          <p class="label">By the numbers</p>
+          <h2 id="chiffres-titre" class="titre-degrade">Real volumes, not mockups</h2>
+          <p>Four orders of magnitude from my internships and projects.</p>
+        </div>
+        <div class="chiffres">
+          <article class="carte chiffre reveal">
+            <span class="label">Verified sales</span>
+            <span class="valeur tabular">128,600</span>
+            <p>Real-estate transactions cleaned, geocoded and aggregated.</p>
+            <span class="legende">Immo Insights N°06</span>
+          </article>
+          <article class="carte chiffre reveal">
+            <span class="label">Transactions per day</span>
+            <span class="valeur tabular">~500,000</span>
+            <p>Top-ups consolidated into a dbt + Airflow datamart.</p>
+            <span class="legende">Ooredoo · 2025</span>
+          </article>
+          <article class="carte chiffre reveal">
+            <span class="label">Spark jobs optimized</span>
+            <span class="valeur tabular">50 → 20 min</span>
+            <p>Three jobs sped up, cutting run time by 60%.</p>
+            <span class="legende">Ooredoo · 2025</span>
+          </article>
+          <article class="carte chiffre reveal">
+            <span class="label">Branches using it</span>
+            <span class="valeur tabular">~150</span>
+            <p>Advisors served by the internal request-tracking portal.</p>
+            <span class="legende">BIAT · 2024</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---------- PROJECTS ---------- -->
+      <section class="section wrap" id="projets" aria-labelledby="projets-titre">
+        <div class="section-tete reveal">
+          <p class="label">Projects</p>
+          <h2 id="projets-titre" class="titre-degrade">What I've built</h2>
+          <p>My personal projects are public on GitHub, with their code, tests and documentation.</p>
+        </div>
+
+        <div class="projets">
+          <article class="carte projet projet-vedette carte-survol reveal">
+            <div class="projet-visuel">
+              <img src="../assets/immo-insights.jpg" alt="Home page of the Immo Insights N°06 site" loading="lazy" />
+              <p class="legende"><b>immo-insights-06.vercel.app</b>live, updated every Monday</p>
+            </div>
+            <div class="projet-corps">
+              <span class="label">2026 · Data engineering</span>
+              <h3>Immo Insights N°06</h3>
+              <p>
+                Real-estate market analysis platform for the Alpes-Maritimes: medallion ELT pipeline over six
+                public sources, tested dbt/DuckDB marts, prices by town and by neighborhood, interactive map.
+                Rebuilt from scratch and republished automatically every week.
+              </p>
+              <ul class="puces">
+                <li>Python</li><li>Airflow</li><li>dbt</li><li>DuckDB</li><li>FastAPI</li><li>Next.js</li><li>GitHub Actions</li>
+              </ul>
+              <div class="projet-liens">
+                <a class="btn btn-clair btn-sm" href="./projects/immo-insights.html">Case study</a>
+                <a class="btn btn-sombre btn-sm" href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer">Live site</a>
+                <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/immo-insights-06" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="carte projet carte-survol reveal">
+            <div class="projet-visuel">
+              <img src="../assets/ecart-be.jpg" alt="Écart BE: view of the differences between two versions of an Excel quantity takeoff" loading="lazy" />
+              <p class="legende"><b>Differences view</b>bill of quantities for a 5-storey building, revision A → B</p>
+            </div>
+            <div class="projet-corps">
+              <span class="label">2026 · Business tool + AI</span>
+              <h3>Écart BE</h3>
+              <p>
+                Excel file comparison tool for engineering consultancies: line-by-line differences, columns matched
+                despite different headers, anomalies, AI summary (can run locally) and Excel report.
+              </p>
+              <ul class="puces">
+                <li>FastAPI</li><li>pandas</li><li>openpyxl</li><li>LLM</li><li>Next.js</li>
+              </ul>
+              <div class="projet-liens">
+                <a class="btn btn-clair btn-sm" href="./projects/ecart-be.html">Case study</a>
+                <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="carte projet carte-survol reveal">
+            <div class="projet-visuel">
+              <img src="../assets/crypto-dashboard.png" alt="Metabase dashboard for crypto price tracking" loading="lazy" />
+              <p class="legende"><b>Metabase dashboard</b>price, volume, market cap</p>
+            </div>
+            <div class="projet-corps">
+              <span class="label">2025 · Real-time ETL</span>
+              <h3>Crypto price tracking</h3>
+              <p>
+                CoinGecko ingestion resilient to API errors (retries, errors isolated per coin), PostgreSQL
+                upsert and hourly and daily aggregate views for Metabase.
+              </p>
+              <ul class="puces">
+                <li>Python</li><li>Airflow</li><li>Docker</li><li>PostgreSQL</li><li>Metabase</li>
+              </ul>
+              <div class="projet-liens">
+                <a class="btn btn-clair btn-sm" href="./projects/crypto.html">Case study</a>
+                <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="sous-tete reveal">
+          <p class="label">School projects</p>
+          <p class="muted">Built at Epitech; the code lives in private repositories of the school's organization.</p>
+        </div>
+        <div class="projets">
+          <article class="carte projet projet-texte reveal">
+            <div class="projet-corps">
+              <span class="label">2026 · Team of 4 · DevOps and CI</span>
+              <h3>Time Manager</h3>
+              <p>
+                Work-time management app (clock-ins, schedules, leave), on web and mobile. My part:
+                the Docker Compose development and production environment behind an nginx proxy, and a GitHub
+                Actions CI with four tracks: tests (pytest, Vitest), security (gitleaks, pip-audit, bandit, npm audit,
+                hadolint, grype), accessibility (Playwright and axe, WCAG 2.2) and production deployment.
+              </p>
+              <ul class="puces">
+                <li>FastAPI</li><li>React</li><li>React Native</li><li>MongoDB</li><li>Docker</li><li>GitHub Actions</li>
+              </ul>
+            </div>
+          </article>
+          <article class="carte projet projet-texte reveal">
+            <div class="projet-corps">
+              <span class="label">2026 · Data analysis and machine learning</span>
+              <h3>JOJA</h3>
+              <p>
+                Exploratory and predictive analysis of a real grocery-delivery dataset: 32.4 million
+                basket lines, 3.4 million orders, about 200,000 customers. Repurchase prediction (three
+                models compared), K-Means segmentation and Apriori association rules. Key finding: organic products weigh three
+                times more in sales than in the catalog.
+              </p>
+              <ul class="puces">
+                <li>Python</li><li>pandas</li><li>scikit-learn</li><li>XGBoost</li><li>mlxtend</li><li>Jupyter</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="archives reveal">
+          Older project: <a href="./projects/immo.html">IMMO ETL</a>, an idempotent Zillow ZHVI → PostgreSQL pipeline
+          with a Metabase dashboard.
+        </p>
+      </section>
+
+      <!-- ---------- EXPERIENCE ---------- -->
+      <section class="section wrap" id="experiences" aria-labelledby="experiences-titre">
+        <div class="section-tete reveal">
+          <p class="label">Experience</p>
+          <h2 id="experiences-titre" class="titre-degrade">Two internships, measured results</h2>
+        </div>
+        <div class="experiences">
+          <article class="carte experience reveal">
+            <div>
+              <h3>Ooredoo</h3>
+              <p class="poste">Data analyst / engineer intern</p>
+              <p class="label quand">Tunis · Mar → Jun 2025</p>
+            </div>
+            <ul>
+              <li>Designed a <b>top-up datamart</b> (dbt + Airflow, ~500,000 transactions per day), which became the single source for prepaid revenue reports.</li>
+              <li>Quality checks with Great Expectations: <b>2.7% duplicates</b> detected, reported ARPU corrected from <b>11.2 to 10.9 TND</b>.</li>
+              <li>Optimized <b>3 Spark jobs (50 → 20 min)</b> and built a Power BI dashboard of ARPU / top-ups by governorate.</li>
+            </ul>
+          </article>
+          <article class="carte experience reveal">
+            <div>
+              <h3>BIAT</h3>
+              <p class="poste">Full-stack &amp; data developer intern</p>
+              <p class="label quand">Tunis · Mar → Jun 2024</p>
+            </div>
+            <ul>
+              <li>Built an <b>internal customer-request tracking portal</b> (Angular, Spring Boot), used by advisors at ~150 branches.</li>
+              <li>Set up the portal's daily data feed (<b>~2,000 requests per day</b>).</li>
+              <li>Turnaround analysis: <b>9 days on average</b> for a checkbook versus 3 advertised, with dashboards built into the portal.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ---------- SKILLS (tabbed "code" block) ---------- -->
+      <section class="section wrap" id="competences" aria-labelledby="competences-titre">
+        <div class="section-tete reveal">
+          <p class="label">Skills</p>
+          <h2 id="competences-titre" class="titre-degrade">My toolbox</h2>
+          <p>What I actually use in my projects and internships.</p>
+        </div>
+        <div class="carte code-bloc reveal" data-onglets>
+          <div class="onglets" role="tablist" aria-label="Skill families">
+            <button role="tab" id="t-data" aria-controls="p-data">Data</button>
+            <button role="tab" id="t-langages" aria-controls="p-langages">Languages</button>
+            <button role="tab" id="t-dev" aria-controls="p-dev">Back / Front</button>
+            <button role="tab" id="t-ops" aria-controls="p-ops">Databases, DevOps &amp; BI</button>
+          </div>
+          <pre class="code" role="tabpanel" id="p-data" aria-labelledby="t-data"><span class="n">1</span><span class="c">// data &amp; orchestration</span>
+<span class="n">2</span><span class="k">orchestration</span> = <span class="s">"Airflow"</span>          <span class="c">// daily DAG + weekly publishing (GitHub Actions)</span>
+<span class="n">3</span><span class="k">transformation</span> = <span class="s">"dbt"</span>             <span class="c">// tested marts, bronze → gold medallion</span>
+<span class="n">4</span><span class="k">engines</span> = [<span class="s">"DuckDB"</span>, <span class="s">"Spark"</span>]   <span class="c">// PySpark during the Ooredoo internship</span>
+<span class="n">5</span><span class="k">quality</span> = <span class="s">"Great Expectations"</span>  <span class="c">// + dbt tests and pytest</span>
+<span class="n">6</span><span class="k">patterns</span> = [<span class="s">"ETL"</span>, <span class="s">"ELT"</span>, <span class="s">"idempotent upsert"</span>]</pre>
+          <pre class="code" role="tabpanel" id="p-langages" aria-labelledby="t-langages" hidden><span class="n">1</span><span class="c">// languages</span>
+<span class="n">2</span><span class="k">python</span> = [<span class="s">"pandas"</span>, <span class="s">"NumPy"</span>, <span class="s">"Matplotlib"</span>]
+<span class="n">3</span><span class="k">sql</span> = <span class="s">"advanced"</span>                    <span class="c">// window functions, CTEs, analytical modeling</span>
+<span class="n">4</span><span class="k">javascript</span> = <span class="s">"TypeScript, React"</span>
+<span class="n">5</span><span class="k">languages</span> = [<span class="s">"French"</span>, <span class="s">"English C1"</span>, <span class="s">"Arabic C1"</span>]</pre>
+          <pre class="code" role="tabpanel" id="p-dev" aria-labelledby="t-dev" hidden><span class="n">1</span><span class="c">// back end and front end</span>
+<span class="n">2</span><span class="k">api</span> = [<span class="s">"FastAPI"</span>, <span class="s">"REST API"</span>, <span class="s">"Spring Boot"</span>]
+<span class="n">3</span><span class="k">front</span> = [<span class="s">"Next.js"</span>, <span class="s">"React Native"</span>, <span class="s">"Angular"</span>]
+<span class="n">4</span><span class="k">ai</span> = <span class="s">"LLM APIs, local models"</span>       <span class="c">// Écart BE summary</span></pre>
+          <pre class="code" role="tabpanel" id="p-ops" aria-labelledby="t-ops" hidden><span class="n">1</span><span class="c">// databases, DevOps and BI</span>
+<span class="n">2</span><span class="k">databases</span> = [<span class="s">"PostgreSQL"</span>, <span class="s">"MySQL"</span>, <span class="s">"DuckDB"</span>]
+<span class="n">3</span><span class="k">devops</span> = [<span class="s">"Git"</span>, <span class="s">"Docker"</span>, <span class="s">"Bash"</span>, <span class="s">"Linux"</span>, <span class="s">"GitHub Actions"</span>]
+<span class="n">4</span><span class="k">bi</span> = [<span class="s">"Power BI"</span>, <span class="s">"Metabase"</span>]
+<span class="n">5</span><span class="k">soft_skills</span> = [<span class="s">"autonomy"</span>, <span class="s">"rigor"</span>, <span class="s">"clear communication"</span>]</pre>
+        </div>
+      </section>
+
+      <!-- ---------- EDUCATION ---------- -->
+      <section class="section wrap" id="formation" aria-labelledby="formation-titre">
+        <div class="section-tete reveal">
+          <p class="label">Education</p>
+          <h2 id="formation-titre" class="titre-degrade">Background</h2>
+        </div>
+        <div class="parcours reveal">
+          <div class="etape">
+            <span class="label">2026 → 2028</span>
+            <div>
+              <h3>Epitech Nice · Information Systems Architect</h3>
+              <p>RNCP 38114, level 7, Artificial Intelligence &amp; Big Data track. Seeking a work-study apprenticeship.</p>
+            </div>
+            <span class="legende">Master's level</span>
+          </div>
+          <div class="etape">
+            <span class="label">2025</span>
+            <div>
+              <h3>Université de Montpellier · Bachelor's in Computer Science, year 3</h3>
+              <p>Final year of the bachelor's degree.</p>
+            </div>
+            <span class="legende">Bachelor's</span>
+          </div>
+          <div class="etape">
+            <span class="label">2022 → 2024</span>
+            <div>
+              <h3>Université d'Avignon · Bachelor's in Computer Science, years 1–2</h3>
+              <p>Computer science track and software development fundamentals.</p>
+            </div>
+            <span class="legende">2 years of higher ed.</span>
+          </div>
+          <div class="etape">
+            <span class="label">2022</span>
+            <div>
+              <h3>French Baccalaureate, with honors (mention Bien)</h3>
+              <p>Mathematics and computer science (NSI) specialties, lycée Gustave Flaubert.</p>
+            </div>
+            <span class="legende">High school</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- CONTACT ---------- -->
+      <section class="section wrap" id="contact" aria-labelledby="contact-titre">
+        <div class="carte contact reveal">
+          <div>
+            <p class="label">Contact</p>
+            <h2 id="contact-titre" class="titre-degrade" style="margin-top: 1.25rem">Let's build something solid.</h2>
+            <p class="contact-texte">
+              I'm looking for a work-study apprenticeship in data engineering or software development, as part of my
+              Epitech program (2026 → 2028). Based in Cannes, France, with a driver's license and my own car.
+            </p>
+            <div class="contact-liens">
+              <a class="contact-lien" href="mailto:fahed.zakaria@epitech.eu"><span>Email</span><span>fahed.zakaria@epitech.eu</span></a>
+              <a class="contact-lien" href="tel:+33762710333"><span>Phone</span><span>+33 7 62 71 03 33</span></a>
+              <a class="contact-lien" href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer"><span>GitHub</span><span>@fahdzakaria</span></a>
+            </div>
+          </div>
+
+          <form id="contactForm" class="formulaire" action="https://formsubmit.co/fahed.zakaria@epitech.eu" method="POST">
+            <input type="hidden" name="_subject" value="New message from the portfolio (EN)" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <label>Name<input class="champ" name="name" type="text" autocomplete="name" required /></label>
+            <label>Email<input class="champ" name="email" type="email" autocomplete="email" required /></label>
+            <label>Message<textarea class="champ" name="message" rows="5" required></textarea></label>
+            <button class="btn btn-clair" type="submit">Send</button>
+            <p class="statut" id="formStatut" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Fahed Zakaria · Cannes</span>
+        <nav aria-label="Links">
+          <a href="#projets">Projects</a>
+          <a href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer">Immo Insights</a>
+          <a href="https://github.com/fahdzakaria" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+
+    <script src="../app.js"></script>
+    <script src="../scene.js"></script>
+  </body>
+</html>

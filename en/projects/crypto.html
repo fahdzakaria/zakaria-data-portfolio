@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto price tracking · case study · Fahed Zakaria</title>
+    <meta name="description" content="Case study: error-resilient CoinGecko ingestion, PostgreSQL and Metabase." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="alternate" hreflang="fr" href="https://zakaria-data-portfolio.vercel.app/projects/crypto.html" />
+    <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/projects/crypto.html" />
+    <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="../index.html" class="logo">Fahed Zakaria</a>
+        <nav class="nav" id="nav" aria-label="Pages">
+          <a href="../index.html#projets">Projects</a>
+          <a href="../index.html#experiences">Experience</a>
+          <a href="../index.html#competences">Skills</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sombre btn-sm langue" href="../../projects/crypto.html" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+        <a href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer" class="btn btn-clair btn-sm header-cta">GitHub</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main class="wrap" id="contenu">
+      <section class="projet-tete">
+        <a class="retour" href="../index.html#projets">← All projects</a>
+        <p class="label">Case study · 2025</p>
+        <h1 class="titre-degrade">Crypto price tracking</h1>
+        <p class="intro">
+          Near-real-time cryptocurrency price ingestion that keeps running through API errors
+          and feeds a Metabase dashboard.
+        </p>
+        <ul class="puces" style="margin-top: 1.5rem">
+          <li>Python</li><li>Airflow</li><li>Docker</li><li>PostgreSQL</li><li>Metabase</li><li>CoinGecko API</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-clair" href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer">Code on GitHub</a>
+          <a class="btn btn-sombre" href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+        </div>
+        <figure class="carte capture">
+          <img src="../../assets/crypto-dashboard.png" alt="Metabase dashboard: price, volume, market cap and change" />
+          <figcaption class="legende"><b>Metabase dashboard</b>comparison of two dates: price, volume, market cap, change</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Problem</p>
+          <h2 class="titre-degrade">A temperamental API, data that must stay fresh</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal"><h3>Context</h3><p>Crypto APIs return intermittent errors (429 rate limits, network drops). The system must stay operational and keep the data available.</p></article>
+          <article class="carte bloc reveal"><h3>Goal</h3><p>Continuous ingestion per cryptocurrency, with no global failure, minute-level upsert and hourly and daily aggregates for Metabase.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Technical decisions</p>
+          <h2 class="titre-degrade">Robust by design</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal">
+            <h3>Resilience to the API</h3>
+            <ul>
+              <li>Retries with capped exponential backoff.</li>
+              <li>Errors isolated per cryptocurrency: one failure doesn't stop the others.</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>Analytical storage</h3>
+            <ul>
+              <li>Upsert on <code>(coin, timestamp)</code>: rerunning creates no duplicates.</li>
+              <li>Materialized views refreshed in autocommit to allow <code>CONCURRENTLY</code>.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="carte code-bloc reveal" style="margin-top: 1.5rem">
+          <div class="onglets"><span class="label" style="padding: 0.375rem 0.25rem">Representative query</span></div>
+          <pre class="code"><span class="n">1</span><span class="k">SELECT</span> hour, coin, avg_price, pct_change_1h
+<span class="n">2</span><span class="k">FROM</span> crypto.hourly
+<span class="n">3</span><span class="k">ORDER BY</span> hour <span class="k">DESC</span>
+<span class="n">4</span><span class="k">LIMIT</span> <span class="s">2000</span>;</pre>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Result</p>
+          <h2 class="titre-degrade">What it changes</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal"><h3>Data side</h3><p>Pipeline tolerant of rate limits: useful partial retrieval and tables always up to date for the cryptocurrencies available.</p></article>
+          <article class="carte bloc reveal"><h3>Product side</h3><p>Dashboard comparing two dates: price, volume, market cap and change.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Fahed Zakaria</span>
+        <nav aria-label="Links">
+          <a href="../index.html#projets">All projects</a>
+          <a href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script src="../../app.js"></script>
+  </body>
+</html>

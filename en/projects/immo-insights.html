@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Immo Insights N°06 · case study · Fahed Zakaria</title>
+    <meta name="description" content="Case study: real-estate market analysis platform for the Alpes-Maritimes, from Airflow ingestion to a site published every week." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="alternate" hreflang="fr" href="https://zakaria-data-portfolio.vercel.app/projects/immo-insights.html" />
+    <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/projects/immo-insights.html" />
+    <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="../index.html" class="logo">Fahed Zakaria</a>
+        <nav class="nav" id="nav" aria-label="Pages">
+          <a href="../index.html#projets">Projects</a>
+          <a href="../index.html#experiences">Experience</a>
+          <a href="../index.html#competences">Skills</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sombre btn-sm langue" href="../../projects/immo-insights.html" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+        <a href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer" class="btn btn-clair btn-sm header-cta">Live site</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main class="wrap" id="contenu">
+      <section class="projet-tete">
+        <a class="retour" href="../index.html#projets">← All projects</a>
+        <p class="label">Case study · 2026</p>
+        <h1 class="titre-degrade">Immo Insights N°06</h1>
+        <p class="intro">
+          A real-estate market analysis platform for the Alpes-Maritimes: price per m² by town and by
+          neighborhood, trends, rental yield and the impact of the energy rating (DPE), built from public data.
+        </p>
+        <ul class="puces" style="margin-top: 1.5rem">
+          <li>Python</li><li>Airflow</li><li>dbt</li><li>DuckDB</li><li>Parquet</li><li>FastAPI</li><li>Next.js</li><li>GitHub Actions</li><li>Vercel</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-clair" href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer">Open the site</a>
+          <a class="btn btn-sombre" href="https://github.com/fahdzakaria/immo-insights-06" target="_blank" rel="noreferrer">Code on GitHub</a>
+        </div>
+        <figure class="carte capture">
+          <img src="../../assets/immo-insights.jpg" alt="Home page of Immo Insights N°06" />
+          <figcaption class="legende"><b>Home page</b>preview of the coastline map and the strip of prices by town</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">By the numbers</p>
+          <h2 class="titre-degrade">What the platform publishes</h2>
+        </div>
+        <div class="chiffres">
+          <article class="carte chiffre reveal"><span class="label">Sales analyzed</span><span class="valeur tabular">128,600</span><p>DVF notarial deeds since 2021.</p></article>
+          <article class="carte chiffre reveal"><span class="label">Towns</span><span class="valeur tabular">163</span><p>The entire department.</p></article>
+          <article class="carte chiffre reveal"><span class="label">Neighborhoods</span><span class="valeur tabular">364</span><p>INSEE IRIS divisions.</p></article>
+          <article class="carte chiffre reveal"><span class="label">Public sources</span><span class="valeur tabular">6</span><p>DVF, INSEE, ADEME DPE, rents, OpenStreetMap, IRIS boundaries (IGN).</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Architecture</p>
+          <h2 class="titre-degrade">From source to site, every Monday</h2>
+          <p>The pipeline rebuilds from scratch every week on GitHub Actions: nothing depends on a local machine.</p>
+        </div>
+        <div class="grille-4">
+          <article class="carte bloc reveal"><span class="etape-num">01 · Bronze</span><h3 style="margin-top: 0.75rem">Ingestion</h3><p>Airflow DAG: downloads the six sources as Parquet, with retries and schema checks.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">02 · Silver</span><h3 style="margin-top: 0.75rem">Cleaning</h3><p>BAN geocoding with caching, DPE and rent matching, geographic enrichment.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">03 · Gold</span><h3 style="margin-top: 0.75rem">dbt marts</h3><p>Tested DuckDB models: prices, trends, yield, DPE impact, score, neighborhoods.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">04 · Site</span><h3 style="margin-top: 0.75rem">Publishing</h3><p>Verified JSON export, embedded in a Next.js site with no API server, deployed on Vercel.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Technical decisions</p>
+          <h2 class="titre-degrade">Numbers you can verify</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal">
+            <h3>Reliability first</h3>
+            <ul>
+              <li>No price shown below 5 sales over 24 months: the area stays greyed out.</li>
+              <li>Median rather than mean, and figures flagged as low-confidence below 20 sales.</li>
+              <li>DPE impact with a confidence interval: a non-significant gap is presented as such.</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>Pipeline safeguards</h3>
+            <ul>
+              <li>dbt and pytest tests run by CI on every push.</li>
+              <li>The export refuses to publish if the row count drops by more than 20%.</li>
+              <li>Alerts on failure; publishing never replaces healthy data with broken data.</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>Static site, zero cost</h3>
+            <ul>
+              <li>The marts are exported as JSON and embedded in the site: no API server to pay for.</li>
+              <li>The same logic also runs behind a FastAPI API for the local version (Docker).</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>From department to neighborhood</h3>
+            <ul>
+              <li>MapLibre map: when you zoom in, large cities switch to IRIS divisions.</li>
+              <li>Towns and neighborhoods share the same color scale.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Fahed Zakaria</span>
+        <nav aria-label="Links">
+          <a href="../index.html#projets">All projects</a>
+          <a href="https://github.com/fahdzakaria/immo-insights-06" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script src="../../app.js"></script>
+  </body>
+</html>

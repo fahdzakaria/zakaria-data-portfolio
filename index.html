@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zakaria Fahd · Data engineer, en recherche d'alternance</title>
+    <title>Fahed Zakaria · Data engineer, en recherche d'alternance</title>
     <meta
       name="description"
       content="Étudiant à Epitech Nice (RNCP 7, IA & Big Data), je construis des pipelines de données de bout en bout : Python, SQL, Airflow, dbt. En recherche d'alternance, basé à Cannes."
     />
     <meta name="theme-color" content="#000000" />
-    <script defer data-domain="fahdzakaria.github.io" src="https://plausible.io/js/script.js"></script>
+    <link rel="alternate" hreflang="fr" href="https://zakaria-data-portfolio.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/" />
+    <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -17,7 +19,7 @@
 
     <header class="site-header">
       <div class="wrap">
-        <a href="#haut" class="logo">Zakaria Fahd</a>
+        <a href="#haut" class="logo">Fahed Zakaria</a>
         <nav class="nav" id="nav" aria-label="Sections">
           <a href="#projets">Projets</a>
           <a href="#experiences">Expériences</a>
@@ -25,6 +27,7 @@
           <a href="#formation">Formation</a>
           <a href="#contact">Contact</a>
         </nav>
+        <a class="btn btn-sombre btn-sm langue" href="./en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a>
         <a href="#contact" class="btn btn-clair btn-sm header-cta">Me contacter</a>
         <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
       </div>
@@ -53,35 +56,10 @@
             </div>
           </div>
 
-          <a
-            class="carte apercu"
-            href="https://immo-insights-06.vercel.app"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Ouvrir Immo Insights N°06, mon projet en ligne"
-          >
-            <div class="apercu-image">
-              <img src="./assets/carte-littoral.svg" alt="Carte des prix médians au m² des appartements par commune, littoral des Alpes-Maritimes" width="640" height="420" />
-              <span class="apercu-etiquette label" style="color: var(--ink)">€/m² médian · 24 mois</span>
-            </div>
-            <div class="apercu-pied">
-              <div class="legende">
-                <b>Immo Insights N°06, littoral</b>
-                appartements, 7 classes de moins de 3&nbsp;039 à plus de 5&nbsp;775 €/m²
-                <div class="echelle" aria-hidden="true">
-                  <span style="background: #2a1a0c"></span><span style="background: #43260e"></span><span style="background: #653410"></span><span style="background: #8f4a12"></span><span style="background: #bd6614"></span><span style="background: #e88a1a"></span><span style="background: #ffb547"></span>
-                </div>
-              </div>
-              <span class="lien">Voir le site →</span>
-            </div>
-          </a>
+          <!-- Emplacement réservé au futur visuel du haut de page (à définir) -->
+          <div class="hero-visuel" aria-hidden="true"></div>
         </div>
 
-        <div class="ticker" aria-hidden="true">
-          <div class="ticker-piste" id="tickerPiste">
-            <span>Python</span><span>SQL</span><span>Airflow</span><span>dbt</span><span>DuckDB</span><span>Spark</span><span>PostgreSQL</span><span>FastAPI</span><span>Docker</span><span>Next.js</span><span>Power BI</span><span>Pandas</span><span>Great Expectations</span><span>Git</span>
-          </div>
-        </div>
       </section>
 
       <!-- ---------- CHIFFRES (tous tirés de projets réels) ---------- -->
@@ -124,7 +102,7 @@
         <div class="section-tete reveal">
           <p class="label">Projets</p>
           <h2 id="projets-titre" class="titre-degrade">Ce que j'ai construit</h2>
-          <p>Chaque projet est public sur GitHub, avec son code, ses tests et sa documentation.</p>
+          <p>Mes projets personnels sont publics sur GitHub, avec leur code, leurs tests et leur documentation.</p>
         </div>
 
         <div class="projets">
@@ -193,6 +171,43 @@
                 <a class="btn btn-clair btn-sm" href="./projects/crypto.html">Étude de cas</a>
                 <a class="btn btn-sombre btn-sm" href="https://github.com/fahdzakaria/crypto-ingest-coingecko-postgres" target="_blank" rel="noreferrer">GitHub</a>
               </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="sous-tete reveal">
+          <p class="label">Projets d'école</p>
+          <p class="muted">Réalisés à Epitech ; le code est dans des dépôts privés de l'organisation de l'école.</p>
+        </div>
+        <div class="projets">
+          <article class="carte projet projet-texte reveal">
+            <div class="projet-corps">
+              <span class="label">2026 · Équipe de 4 · DevOps et CI</span>
+              <h3>Time Manager</h3>
+              <p>
+                Application de gestion du temps de travail (pointages, plannings, congés), en web et en mobile. Ma part :
+                l'environnement Docker Compose de développement et de production derrière un proxy nginx, et une CI GitHub
+                Actions en quatre volets : tests (pytest, Vitest), sécurité (gitleaks, pip-audit, bandit, npm audit,
+                hadolint, grype), accessibilité (Playwright et axe, WCAG 2.2) et déploiement de production.
+              </p>
+              <ul class="puces">
+                <li>FastAPI</li><li>React</li><li>React Native</li><li>MongoDB</li><li>Docker</li><li>GitHub Actions</li>
+              </ul>
+            </div>
+          </article>
+          <article class="carte projet projet-texte reveal">
+            <div class="projet-corps">
+              <span class="label">2026 · Data analysis et machine learning</span>
+              <h3>JOJA</h3>
+              <p>
+                Analyse exploratoire et prédictive d'un vrai jeu de données de livraison de courses : 32,4&nbsp;millions de
+                lignes de paniers, 3,4&nbsp;millions de commandes, environ 200&nbsp;000 clients. Prédiction du réachat (trois
+                modèles comparés), segmentation K-Means et règles d'association Apriori. Constat clé : le bio pèse trois
+                fois plus dans les ventes que dans l'offre.
+              </p>
+              <ul class="puces">
+                <li>Python</li><li>pandas</li><li>scikit-learn</li><li>XGBoost</li><li>mlxtend</li><li>Jupyter</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -293,7 +308,7 @@
             <span class="label">2025</span>
             <div>
               <h3>Université de Montpellier · Licence 3 informatique</h3>
-              <p>Licence informatique, 3ᵉ année.</p>
+              <p>Dernière année de licence.</p>
             </div>
             <span class="legende">Bac +3</span>
           </div>
@@ -350,7 +365,7 @@
 
     <footer class="pied">
       <div class="wrap legende">
-        <span>© <span id="annee">2026</span> Zakaria Fahd · Cannes</span>
+        <span>© <span id="annee">2026</span> Fahed Zakaria · Cannes</span>
         <nav aria-label="Liens">
           <a href="#projets">Projets</a>
           <a href="https://immo-insights-06.vercel.app" target="_blank" rel="noreferrer">Immo Insights</a>

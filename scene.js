@@ -1,4 +1,4 @@
-// Fond du hero en verre cannelé « braise » (même shader que Immo Insights) :
+// Fond du hero en verre cannelé, teinte vert mousse :
 // une braise qui ondule derrière du verre cannelé, avec grain. WebGL brut,
 // basse résolution, en pause hors écran ; image figée si mouvement réduit ;
 // dégradé CSS de repli si WebGL est indisponible.
@@ -11,9 +11,9 @@ vec3 ember(vec2 p,float t){
   float a=(sin(p.x*2.2+t*.12)+sin(p.y*3.1-t*.09+p.x*1.3)+sin((p.x+p.y)*1.7+t*.07))/3.;
   float b=sin(p.x*4.-t*.1+sin(p.y*2.5+t*.15)*1.5);
   float v=.5+.5*a;
-  vec3 c=mix(vec3(.02,.008,.004),vec3(.22,.06,.02),smoothstep(.1,.5,v));
-  c=mix(c,vec3(.55,.2,.04),smoothstep(.45,.8,v+.1*b));
-  c=mix(c,vec3(.95,.55,.12),smoothstep(.8,1.,v+.15*b)*.6);
+  vec3 c=mix(vec3(.006,.014,.006),vec3(.05,.16,.05),smoothstep(.1,.5,v));
+  c=mix(c,vec3(.22,.48,.12),smoothstep(.45,.8,v+.1*b));
+  c=mix(c,vec3(.7,.92,.42),smoothstep(.8,1.,v+.15*b)*.6);
   return c;}
 void main(){
   vec2 uv=gl_FragCoord.xy/r;
@@ -30,7 +30,7 @@ void main(){
   vec2 q=vec2((ux-.78-.05*sin(t*.05))*asp,(uv.y-.62-.04*cos(t*.04))*1.4);
   float bloom=exp(-dot(q,q)*3.2);
   c*=.07+1.3*bloom;
-  c+=vec3(1.,.42,.08)*pow(bloom,6.)*.35*edge;
+  c+=vec3(.55,1.,.32)*pow(bloom,6.)*.3*edge;
   c+=(hash(gl_FragCoord.xy+fract(t*.37)*91.)-.5)*.08;
   gl_FragColor=vec4(max(c,0.),1.);}`;
 

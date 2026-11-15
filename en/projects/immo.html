@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMMO ETL · case study · Fahed Zakaria</title>
+    <meta name="description" content="Case study: idempotent Zillow ZHVI to PostgreSQL pipeline with a Metabase dashboard." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="alternate" hreflang="fr" href="https://zakaria-data-portfolio.vercel.app/projects/immo.html" />
+    <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/projects/immo.html" />
+    <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="../index.html" class="logo">Fahed Zakaria</a>
+        <nav class="nav" id="nav" aria-label="Pages">
+          <a href="../index.html#projets">Projects</a>
+          <a href="../index.html#experiences">Experience</a>
+          <a href="../index.html#competences">Skills</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sombre btn-sm langue" href="../../projects/immo.html" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+        <a href="https://github.com/fahdzakaria/immo-etl-zillow-postgres" target="_blank" rel="noreferrer" class="btn btn-clair btn-sm header-cta">GitHub</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main class="wrap" id="contenu">
+      <section class="projet-tete">
+        <a class="retour" href="../index.html#projets">← All projects</a>
+        <p class="label">Case study · earlier project</p>
+        <h1 class="titre-degrade">IMMO ETL</h1>
+        <p class="intro">
+          A Zillow ZHVI → PostgreSQL pipeline designed to be rerun safely and to support monitoring, built before
+          the <a href="./immo-insights.html" style="color: var(--ink); border-bottom: 1px solid var(--line2)">Immo Insights N°06</a> platform.
+        </p>
+        <ul class="puces" style="margin-top: 1.5rem">
+          <li>Python</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Metabase</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-clair" href="https://github.com/fahdzakaria/immo-etl-zillow-postgres" target="_blank" rel="noreferrer">Code on GitHub</a>
+          <a class="btn btn-sombre" href="https://github.com/fahdzakaria/immo-etl-zillow-postgres/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+        </div>
+        <figure class="carte capture">
+          <img src="../../assets/immo-dashboard.png" alt="IMMO Market Monitor Metabase dashboard" />
+          <figcaption class="legende"><b>IMMO Market Monitor</b>national trends and state-by-state comparison</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Architecture</p>
+          <h2 class="titre-degrade">Four steps</h2>
+        </div>
+        <div class="grille-4">
+          <article class="carte bloc reveal"><span class="etape-num">01</span><h3 style="margin-top: 0.75rem">Extraction</h3><p>Reads the CSV and validates the schema.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">02</span><h3 style="margin-top: 0.75rem">Transformation</h3><p>Wide → long format, monthly and yearly changes, cleaning.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">03</span><h3 style="margin-top: 0.75rem">Loading</h3><p>Upsert of regions, then of monthly prices.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">04</span><h3 style="margin-top: 0.75rem">Reporting</h3><p>Metabase comparison dashboards.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Technical decisions</p>
+          <h2 class="titre-degrade">Rerunnable without corruption</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal">
+            <h3>Idempotence</h3>
+            <ul>
+              <li>Composite primary key on <code>(region_id, dt)</code>.</li>
+              <li>Loading through a temp table, then <code>ON CONFLICT DO UPDATE</code>.</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>Reliability</h3>
+            <ul>
+              <li>Input CSV validation (RegionID and monthly columns).</li>
+              <li>Unit tests and an optional database integration test.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="carte code-bloc reveal" style="margin-top: 1.5rem">
+          <div class="onglets"><span class="label" style="padding: 0.375rem 0.25rem">Representative query</span></div>
+          <pre class="code"><span class="n">1</span><span class="k">SELECT</span> dt, <span class="k">AVG</span>(zhvi) <span class="k">AS</span> avg_zhvi
+<span class="n">2</span><span class="k">FROM</span> prices_monthly
+<span class="n">3</span><span class="k">GROUP BY</span> dt
+<span class="n">4</span><span class="k">ORDER BY</span> dt;</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Fahed Zakaria</span>
+        <nav aria-label="Links">
+          <a href="../index.html#projets">All projects</a>
+          <a href="https://github.com/fahdzakaria/immo-etl-zillow-postgres" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script src="../../app.js"></script>
+  </body>
+</html>

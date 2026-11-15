@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Écart BE · case study · Fahed Zakaria</title>
+    <meta name="description" content="Case study: AI-assisted Excel file comparison tool for engineering consultancies." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="alternate" hreflang="fr" href="https://zakaria-data-portfolio.vercel.app/projects/ecart-be.html" />
+    <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/projects/ecart-be.html" />
+    <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a href="../index.html" class="logo">Fahed Zakaria</a>
+        <nav class="nav" id="nav" aria-label="Pages">
+          <a href="../index.html#projets">Projects</a>
+          <a href="../index.html#experiences">Experience</a>
+          <a href="../index.html#competences">Skills</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <a class="btn btn-sombre btn-sm langue" href="../../projects/ecart-be.html" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+        <a href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer" class="btn btn-clair btn-sm header-cta">GitHub</a>
+        <button class="btn btn-sombre btn-sm menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <main class="wrap" id="contenu">
+      <section class="projet-tete">
+        <a class="retour" href="../index.html#projets">← All projects</a>
+        <p class="label">Case study · 2026</p>
+        <h1 class="titre-degrade">Écart BE</h1>
+        <p class="intro">
+          An Excel file comparison tool for engineering consultancies: give it two versions of the same quantity takeoff and it shows
+          exactly what changed, with differences in euros, anomalies and a plain-language summary in French.
+        </p>
+        <ul class="puces" style="margin-top: 1.5rem">
+          <li>Python 3.11</li><li>FastAPI</li><li>pandas</li><li>openpyxl</li><li>rapidfuzz</li><li>LLM</li><li>Next.js</li><li>Docker</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-clair" href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer">Code on GitHub</a>
+        </div>
+        <figure class="carte capture">
+          <img src="../../assets/ecart-be.jpg" alt="View of the differences between two versions of a quantity takeoff" />
+          <figcaption class="legende"><b>Differences view</b>items added, removed and modified, with the delta in € and %</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">How it works</p>
+          <h2 class="titre-degrade">Six steps, one command</h2>
+          <p><code style="font-family: var(--mono)">docker compose up</code> starts the API and the interface.</p>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal"><span class="etape-num">01</span><h3 style="margin-top: 0.75rem">Import</h3><p>Files in .xlsx, .xls or .csv, multi-sheet; header row detected even under a title block, French-formatted numbers included.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">02</span><h3 style="margin-top: 0.75rem">Column matching</h3><p>"Qté" matched with "Quantité": domain synonyms first, then fuzzy matching, editable in the interface.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">03</span><h3 style="margin-top: 0.75rem">Comparison</h3><p>Added, removed and modified rows; renumbered items found by similarity. 100,000 rows in ~6 s.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">04</span><h3 style="margin-top: 0.75rem">Anomalies</h3><p>Rule-based, no AI: duplicates, critical empty cells, outliers, Quantity × Unit price ≠ Total.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">05</span><h3 style="margin-top: 0.75rem">AI summary</h3><p>Anthropic/OpenAI API, free local Ollama model, or rule-based fallback. The AI only receives aggregates, never the files.</p></article>
+          <article class="carte bloc reveal"><span class="etape-num">06</span><h3 style="margin-top: 0.75rem">Export</h3><p>Three-tab Excel report (summary, color-coded differences, anomalies) and a CSV ready for French-locale Excel.</p></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Screenshots</p>
+          <h2 class="titre-degrade">The tool in action</h2>
+        </div>
+        <div class="grille-2">
+          <figure class="carte capture reveal" style="margin-top: 0">
+            <img src="../../assets/ecart-be-mapping.jpg" alt="Automatic column matching" loading="lazy" />
+            <figcaption class="legende"><b>Column matching</b>different headers paired automatically</figcaption>
+          </figure>
+          <figure class="carte capture reveal" style="margin-top: 0">
+            <img src="../../assets/ecart-be-synthese.jpg" alt="AI summary generated locally" loading="lazy" />
+            <figcaption class="legende"><b>Local AI summary</b>summary of the changes, in French</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-tete reveal">
+          <p class="label">Technical decisions</p>
+          <h2 class="titre-degrade">Designed for a real engineering consultancy</h2>
+        </div>
+        <div class="grille-2">
+          <article class="carte bloc reveal">
+            <h3>A web-independent engine</h3>
+            <ul>
+              <li>The comparison logic is a pure Python library, testable offline.</li>
+              <li>The FastAPI API and the Next.js interface simply call it.</li>
+              <li>70 pytest tests on synthetic fixtures.</li>
+            </ul>
+          </article>
+          <article class="carte bloc reveal">
+            <h3>Privacy and cost under control</h3>
+            <ul>
+              <li>Only aggregates under 6 KB are sent to the AI, never the cost estimates.</li>
+              <li>The active mode is always displayed; on failure, it falls back to rules and shows the reason.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div class="wrap legende">
+        <span>© <span id="annee">2026</span> Fahed Zakaria</span>
+        <nav aria-label="Links">
+          <a href="../index.html#projets">All projects</a>
+          <a href="https://github.com/fahdzakaria/ecart-be" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script src="../../app.js"></script>
+  </body>
+</html>
