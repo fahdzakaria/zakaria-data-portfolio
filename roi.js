@@ -280,14 +280,16 @@ async function demarrer() {
   /* ---------- ombre de contact ---------- */
   const ombreTex = texture(128, (g, n) => {
     const d = g.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
-    d.addColorStop(0, "rgba(0,0,0,0.7)");
-    d.addColorStop(0.45, "rgba(0,0,0,0.35)");
+    d.addColorStop(0, "rgba(0,0,0,0.6)");
+    d.addColorStop(0.5, "rgba(0,0,0,0.25)");
+    d.addColorStop(0.95, "rgba(0,0,0,0)");
     d.addColorStop(1, "rgba(0,0,0,0)");
     g.fillStyle = d;
     g.fillRect(0, 0, n, n);
   });
   const ombre = new THREE.Mesh(
-    new THREE.PlaneGeometry(4, 4),
+    // assez petite pour ne jamais toucher les bords du cadre (sinon on voit un rectangle sombre)
+    new THREE.PlaneGeometry(2.6, 2.6),
     new THREE.MeshBasicMaterial({ map: ombreTex, transparent: true, depthWrite: false })
   );
   ombre.rotation.x = -Math.PI / 2;
@@ -308,7 +310,8 @@ async function demarrer() {
     renderer.setSize(W, H, false);
     camera.aspect = W / H;
     const t = Math.tan((FOV * Math.PI) / 360);
-    const d = Math.max(6.0 / (2 * t), 3.0 / (2 * t * camera.aspect));
+    // marge sous le socle pour que l'ombre ne soit jamais coupée par le bas du cadre
+    const d = Math.max(6.8 / (2 * t), 3.0 / (2 * t * camera.aspect));
     camera.position.set(0, 1.1, d);
     camera.lookAt(0, 0, 0);
     camera.updateProjectionMatrix();
