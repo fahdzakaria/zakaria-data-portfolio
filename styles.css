@@ -376,7 +376,7 @@ a.carte:hover,
 }
 .hero-fond.repli {
   background:
-    radial-gradient(50% 45% at 78% 38%, rgba(120, 190, 70, 0.4), transparent 70%),
+    radial-gradient(50% 45% at 78% 38%, rgba(120, 190, 70, 0.18), transparent 70%),
     repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0 1px, transparent 1px 22px),
     #000;
 }

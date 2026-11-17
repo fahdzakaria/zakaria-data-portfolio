@@ -29,8 +29,8 @@ void main(){
   c*=(.62+.38*edge)*(.8+.35*f);
   vec2 q=vec2((ux-.78-.05*sin(t*.05))*asp,(uv.y-.62-.04*cos(t*.04))*1.4);
   float bloom=exp(-dot(q,q)*3.2);
-  c*=.07+1.3*bloom;
-  c+=vec3(.55,1.,.32)*pow(bloom,6.)*.3*edge;
+  c*=.04+.6*bloom;
+  c+=vec3(.55,1.,.32)*pow(bloom,6.)*.08*edge;
   c+=(hash(gl_FragCoord.xy+fract(t*.37)*91.)-.5)*.08;
   gl_FragColor=vec4(max(c,0.),1.);}`;
 
@@ -62,7 +62,8 @@ function demarrer(cv) {
   const uR = gl.getUniformLocation(prog, "r");
   const uT = gl.getUniformLocation(prog, "t");
 
-  const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // image figée si mouvement réduit, et sur mobile (le roi 3D anime déjà le haut de page)
+  const reduit = window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 960px), (pointer: coarse)").matches;
   let raf = 0;
   let visible = true;
   const t0 = performance.now();
