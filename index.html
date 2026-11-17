@@ -13,6 +13,14 @@
     <link rel="alternate" hreflang="en" href="https://zakaria-data-portfolio.vercel.app/en/" />
     <script defer data-domain="zakaria-data-portfolio.vercel.app" src="https://plausible.io/js/script.js"></script>
     <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -56,8 +64,7 @@
             </div>
           </div>
 
-          <!-- Emplacement réservé au futur visuel du haut de page (à définir) -->
-          <div class="hero-visuel" aria-hidden="true"></div>
+          <div class="hero-visuel" data-roi aria-hidden="true"></div>
         </div>
 
       </section>
@@ -377,5 +384,6 @@
 
     <script src="./app.js"></script>
     <script src="./scene.js"></script>
+    <script type="module" src="./roi.js"></script>
   </body>
 </html>
